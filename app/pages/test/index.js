@@ -21,8 +21,8 @@ export default class popCheck extends Component {
     }
   }
 
-  componentDidMount() {
-  }
+componentDidMount() {
+}
 
 
 

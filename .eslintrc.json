@@ -17,7 +17,9 @@
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
-      "experimentalObjectRestSpread": true
+      "experimentalObjectRestSpread": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true
     }
   },
   "rules": {

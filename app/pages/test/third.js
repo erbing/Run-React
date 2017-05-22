@@ -21,12 +21,10 @@ export default class popCheck extends Component {
   }
 
   componentDidMount() {
-    
   }
 
 
   handleClick() {
-    
   }
   
   render() {
