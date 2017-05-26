@@ -7,6 +7,8 @@ import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Butto
 
 import Sub from './sub'
 
+import Test from './testComp.js'
+
 @connect(
     (state, props) => ({
       config: state.config,
@@ -24,14 +26,17 @@ export default class popCheck extends Component {
 componentDidMount() {
 }
 
-
-
-  
   render() {
     return (
       <Panel>
-        测试
+        测试1111
         <Sub/>
+        <Button>TEST</Button>
+
+        <p />
+
+        <Test></Test>
+
       </Panel>
     )
   }
