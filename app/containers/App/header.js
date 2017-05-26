@@ -14,7 +14,7 @@ export default class Header extends Component {
           <div className="navbar-header">
             <a href="index.html" className="navbar-brand">
               <div className="brand-title">
-                <span className="brand-text">肚皮叔</span>
+                <span className="brand-text">Demo</span>
               </div>
             </a>
           </div>
