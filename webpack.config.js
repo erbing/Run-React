@@ -19,7 +19,7 @@ module.exports = {
     chunkFilename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.json'],
+    extensions: ['.jsx', '.js', '.json'],
     alias: {
       components: __dirname + '/app/components',
       actions: __dirname + '/app/actions',
@@ -35,19 +35,19 @@ module.exports = {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        use: 'babel',
+        loader: 'babel-loader'
       }, 
       {
         test: /\.less$/,
-        use: 'style!css!postcss!less',
+        loader: ['style-loader','css-loader', 'less-loader'],
       }, 
       {
         test: /\.css/,
-        use: 'style!css',
+        loader: ['style-loader', 'css-loader'],
       }, 
       {
         test: /\.(png|jpg)$/,
-        use: 'url-loader?limit=8192',
+        loader: 'url-loader?limit=8192',
       }, 
     ],
   },
@@ -58,8 +58,8 @@ module.exports = {
        }
     }),
     new webpack.HotModuleReplacementPlugin(),   // 加入热插拔
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+    // new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js'}),
     /*压缩优化代码开始  可以关掉*/
     // new webpack.optimize.UglifyJsPlugin({minimize: true}),
     /*压缩优化代码结束*/
@@ -70,9 +70,9 @@ module.exports = {
       url: 'http://localhost:3000'
     }),
   ],
-  devtool: 'source-map',
+  // devtool: 'source-map',
   devServer: {
-    contentBase: './app/',
+    // contentBase: './app/',
     historyApiFallback: true,
     hot: true,
     proxy: casProxy(),
