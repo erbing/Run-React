@@ -31,23 +31,23 @@ module.exports = {
     },
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loader: 'react-hot!babel',
+        use: 'babel',
       }, 
       {
         test: /\.less$/,
-        loader: 'style!css!postcss!less',
+        use: 'style!css!postcss!less',
       }, 
       {
         test: /\.css/,
-        loader: 'style!css',
+        use: 'style!css',
       }, 
       {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192',
+        use: 'url-loader?limit=8192',
       }, 
     ],
   },
