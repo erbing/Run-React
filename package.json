@@ -1,10 +1,9 @@
 {
-  "name": "DEMO",
+  "name": "reactjs",
   "version": "0.0.1",
-  "description": "DEMO",
+  "description": "community",
   "repository": {
-    "type": "gitlab",
-    "url": "http://192.168.1.88/DEMO"
+    "type": "github"
   },
   "private": true,
   "scripts": {
@@ -15,7 +14,7 @@
     "lint": "eslint ./ --cache --fix --ignore-pattern .gitignore",
     "precommit-msg": "echo Pre-commit checking...please wait && exit 0"
   },
-  "author": "DEMO",
+  "author": "zigzag",
   "devDependencies": {
     "ava": "~0.15.2",
     "babel": "^6.5.2",
