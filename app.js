@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 
-// import Header from './modules/slide.js'
-// import Main from './modules/main.js'
+import Header from './app/modules/slide.js'
+import Main from './app/modules/main.js'
 
 /**
  * 引入 redux
@@ -14,7 +14,7 @@ import { Provider, connect } from 'react-redux'
 /**
  * 引入 reducers
  */
-import reducer from './reducers'
+import reducer from './app/reducers'
 /**
  * 创建一个初始化的state
  */
