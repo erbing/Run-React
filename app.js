@@ -1,10 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-
-import Header from './app/modules/slide.js'
-import Main from './app/modules/main.js'
-
 /**
  * 引入 redux
  */
@@ -12,27 +8,19 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider, connect } from 'react-redux'
 
 /**
- * 引入 reducers
+ * 引入 reducers, store
  */
-import reducer from './app/reducers'
+import store from './app/store'
 /**
- * 创建一个初始化的state
+ * 页面的 主题架构 header  slide main 三大板块
+ * header 主要是处理 头部内容
+ * slide  主要是 侧边的 内容导航
+ * main   主要是显示当前路由的内容
  */
+import Header from './app/modules/header.js'
+import Main from './app/modules/main.js'
+import Slide from './app/modules/slide.js'
 
-const initState = {
-    card: {
-        name: 'Jack Ma',
-        avator: 'a.jpg'
-    },
-    dialog: {
-        states: false
-    }
-}
-/**
- * 创建一个 store 仓库
- */
-
-const store = createStore(reducer, initState)
 
 const APP = () => (
     <div>

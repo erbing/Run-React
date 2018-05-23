@@ -1,5 +1,4 @@
 export default (state, action) => {
-    console.log(action, 'reducers')
     switch (action.type) {
         case 'CHANGE_NAME': 
         return {
