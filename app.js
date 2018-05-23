@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
+
+import style from './app/assets/less/index.less'
 /**
  * 引入 redux
  */
@@ -23,9 +25,12 @@ import Slide from './app/modules/slide.js'
 
 
 const APP = () => (
-    <div>
-        <Header />
-        <Main />
+    <div className="app">
+        <Slide />
+        <div className="main">
+            <Header />
+            <Main />
+        </div>
     </div>
 )
 
