@@ -15,6 +15,7 @@ export default class Header extends React.Component {
                 <div className="slide-header flex-xy">
                     <img src={logoImg} className="slide-logo"></img>
                     <span className="slogn">ReactJs</span>
+                    <em className="beta">Beta</em>
                 </div>
                 
                 <ul className="slide-ul">
