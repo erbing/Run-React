@@ -9,6 +9,8 @@ import Index from '../pages/index'
 const Home = (props) => (
     <div className="router">
         this is home pages
+        <i className="icon iconfont icon-appreciate"></i>
+        <i className="icon iconfont icon-check"></i>
     </div>
 )
 

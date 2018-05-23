@@ -39,6 +39,10 @@ let webpackConfig = {
             {
                 test: /\.(png|jpg)$/,
                 loader: 'url-loader?limit=8192',
+            },
+            {
+                test: /\.(woff|eot|ttf|svg)(\?.*)?$/,
+                loader: 'url-loader'
             }
         ]
     },
