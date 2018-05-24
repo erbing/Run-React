@@ -6,11 +6,12 @@ import styleMain from '../assets/less/main.less'
 
 import Index from '../pages/index'
 
+
 const Home = (props) => (
     <div className="router">
         this is home pages
-        <i className="icon iconfont icon-appreciate"></i>
-        <i className="icon iconfont icon-check"></i>
+        <i className="icon icon-appreciate"></i>
+        <i className="icon icon-check"></i>
     </div>
 )
 

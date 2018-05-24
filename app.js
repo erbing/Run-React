@@ -3,8 +3,10 @@ import ReactDom from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 
 import style from './app/assets/less/index.less'
-import styles from './app/assets/icon/iconfont.css'
-import icon from './app/assets/css/icons.css'
+
+import './app/assets/icon/iconfont.css'
+
+// import 'font-awesome'
 /**
  * 引入 redux
  */

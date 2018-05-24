@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 let webpackConfig = {
     entry: {
@@ -42,7 +43,7 @@ let webpackConfig = {
             },
             {
                 test: /\.(woff|eot|ttf|svg)(\?.*)?$/,
-                loader: 'url-loader'
+                loader: 'file-loader'
             }
         ]
     },
@@ -57,6 +58,7 @@ let webpackConfig = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, './index.html'),
         }),
+        new ExtractTextPlugin('app/assets/icon/iconfont.css')
         // new OpenBrowserPlugin({
         //     url: 'http://127.0.0.1:8000'
         // }),
