@@ -37,17 +37,6 @@ const Index = (props) => {
     )
 }
 
-// const Index = React.createClass({
-//     render () {
-//         return (
-//             <div className="router">
-//                 this is index and my pages && test
-//                 <Test1 />
-//                 <Test2 />
-//             </div>
-//         )
-//     }
-// })
 
 const mapStateToProps = (state) => {
     console.log(state, 'mapStateToProps')

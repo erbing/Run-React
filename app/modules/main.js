@@ -5,7 +5,7 @@ import style from '../assets/less/index.less'
 import styleMain from '../assets/less/main.less'
 
 import Index from '../pages/index'
-
+import Icons from '../pages/icon'
 
 const Home = (props) => (
     <div className="router">
@@ -30,14 +30,16 @@ const Number = (props) => (
     </div>
 )
 
+const Icon = Icons
 
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path='/' component={Home}/>
-      <Route path='/index' component={Roster}/>
-      <Route path='/my' component={Schedule}/>
-        <Route path='/msg/:id' component={Number}/>
+        <Route exact path='/' component={Home}/>
+        <Route path='/index' component={Roster}/>
+        <Route path='/my' component={Schedule}/>
+            <Route path='/msg/:id' component={Number}/>
+        <Route path='/icon' component={Icon}/>
     </Switch>
   </main>
 )

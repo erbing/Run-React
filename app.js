@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 
+
+
+import './app/assets/icon/iconfont.less'
 import style from './app/assets/less/index.less'
-
-import './app/assets/icon/iconfont.css'
-
 // import 'font-awesome'
 /**
  * 引入 redux

@@ -11,7 +11,7 @@ export default class Header extends React.Component {
             <div className="header">
                  <i className="icon icon-appreciate"></i>
                  <i className="icon icon-check"></i>
-                <h2> this is header </h2>
+                {/* <h2> this is header </h2> */}
             </div>
         )
     }
