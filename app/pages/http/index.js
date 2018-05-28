@@ -1,5 +1,8 @@
-// about components
+// https utils
 import React from 'react'
+import http from '../../utils/http'
+
+http()
 
 const Http = () => {
     render(
@@ -8,3 +11,4 @@ const Http = () => {
        </h2>
     )
 }
+

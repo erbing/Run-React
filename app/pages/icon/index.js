@@ -46,8 +46,6 @@ const Icon = (props) => {
                     )
                 })
             }
-
-
         </div>
     )
 }
