@@ -6,6 +6,7 @@ import styleMain from '../assets/less/main.less'
 
 import Index from '../pages/index'
 import Icons from '../pages/icon'
+import Http from '../pages/http'
 
 const Home = (props) => (
     <div className="router">
@@ -40,6 +41,7 @@ const Main = () => (
         <Route path='/my' component={Schedule}/>
             <Route path='/msg/:id' component={Number}/>
         <Route path='/icon' component={Icon}/>
+        <Route path='/http' component={Http}/>
     </Switch>
   </main>
 )
