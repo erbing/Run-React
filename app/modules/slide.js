@@ -23,6 +23,7 @@ export default class Header extends React.Component {
                     <li className="slide-li"> <Link to={'/my'}>MY </Link></li>
                     <li className="slide-li"> <Link to={'/icon'}>ICON </Link></li>
                     <li className="slide-li"> <Link to={'/http'}>HTTP</Link></li>
+                    <li className="slide-li"> <Link to={'/button'}>BUTTON</Link></li>
                 </ul>
             </div>
         )

@@ -7,6 +7,7 @@ import styleMain from '../assets/less/main.less'
 import Index from '../pages/index'
 import Icons from '../pages/icon'
 import Http from '../pages/http'
+import Btn from '../pages/button'
 
 const Home = (props) => (
     <div className="router">
@@ -42,6 +43,7 @@ const Main = () => (
             <Route path='/msg/:id' component={Number}/>
         <Route path='/icon' component={Icon}/>
         <Route path='/http' component={Http}/>
+        <Route path='/button' component={Btn}/>
     </Switch>
   </main>
 )
