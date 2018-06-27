@@ -9,9 +9,9 @@ export default class Header extends React.Component {
     render() {
         return (
             <div className="header">
-                 <i className="icon icon-appreciate"></i>
-                 <i className="icon icon-check"></i>
-                {/* <h2> this is header </h2> */}
+                 {/* <i className="icon icon-appreciate"></i>
+                 <i className="icon icon-check"></i> */}
+                <h2> this is header </h2>
             </div>
         )
     }
