@@ -1,10 +1,12 @@
 // about components
 import React from 'react'
 
-const Http = () => {
-    render(
-       <h2>
-           this is about pages
-       </h2>
-    )
+const About = () => {
+        return(
+            <h2>
+                this is Button pages
+            </h2>
+        )
 }
+
+export default About

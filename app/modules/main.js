@@ -8,6 +8,7 @@ import Index from '../pages/index'
 import Icons from '../pages/icon'
 import Http from '../pages/http'
 import Btn from '../pages/button'
+import About from '../pages/about'
 
 const Home = (props) => (
     <div className="router">
@@ -44,6 +45,7 @@ const Main = () => (
         <Route path='/icon' component={Icon}/>
         <Route path='/http' component={Http}/>
         <Route path='/button' component={Btn}/>
+        <Route path='/about' component={About}/>
     </Switch>
   </main>
 )
