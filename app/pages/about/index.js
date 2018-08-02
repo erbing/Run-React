@@ -4,7 +4,7 @@ import React from 'react'
 const About = () => {
         return(
             <h2>
-                this is Button pages
+                this is About pages
             </h2>
         )
 }

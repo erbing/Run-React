@@ -9,6 +9,8 @@ import Icons from '../pages/icon'
 import Http from '../pages/http'
 import Btn from '../pages/button'
 import About from '../pages/about'
+import LazyLoad from '../pages/lazyLoad'
+
 
 const Home = (props) => (
     <div className="router">
@@ -46,6 +48,7 @@ const Main = () => (
         <Route path='/http' component={Http}/>
         <Route path='/button' component={Btn}/>
         <Route path='/about' component={About}/>
+        <Route path='/lazyLoad' component={LazyLoad}/>
     </Switch>
   </main>
 )
