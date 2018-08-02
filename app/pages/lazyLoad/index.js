@@ -17,68 +17,150 @@ class LazyLoad extends React.Component{
             ]
         }
     }
-    componentWillMount() {}
-
     componentDidMount() {
-        let loadingImg = 'http://1.lazyloading.sinaapp.com/Lazy/images/loading.gif'
-        let allImgs = this.state.allImgs
-    
-        // 1、获取对象距离页面顶端的距离
-        const getHeight = (obj)=> {
-            let h = 0
-            while(obj) {
-                h += obj.offsetTop          // 距离上一个标签对距离
-                obj = obj.offsetParent      // 
-            }
-            return h
-        }
-    
-        // 2、判断是否在可视区域内
-        const isVisible = (obj)=> {
-            let t = document.documentElement.clientHeight + (document.documentElement.scrollTop || document.body.scrollTop)
-            let h = getHeight(obj)
-            // console.log(t, 't')
-            return (h < t)          // true 则视为在可是范围内
-        }
-    
-        // 5、去获取 需要展示出来图片的 src
-        const setImg = (index) => {
-            console.log(index, 'index')
-            let imgDiv = document.getElementById('imgs')
-            let allImgs = imgDiv.children
-            let curSrc = ''
-            if(allImgs[index].children[0].dataset) {
-                curSrc = allImgs[index].children[0].dataset
-            } else {
-                curSrc = allImgs[index].children[0].getAttribute('data-src')
-            }
-            // allImgs[index].src = loadingImg
-            // setTimeout(()=>{
-            //     allImgs[index].src = curSrc.src
-            // },500)
-            allImgs[index].children[0].src = curSrc.src
-        }
 
-        // 3、绑定滚动事件，进行判断那些元素在可视区域内，然后进行图片加载
-        window.onscroll = function() {
-            let imgDiv = document.getElementById('imgs')
-            let allImgs = imgDiv.children
-            for (var i = 0; i < allImgs.length; i++) {
-                const element = allImgs[i]
-                if (isVisible(element)) {
-                    setTimeout((function(){
-                        let index = i
-                        setImg(index)
-                    })(i), 500)
-                    // setImg(i)
+        function lazyload (options) {
+            var doc = options.id ? document.getElementById(options.id) : document
+            if (doc === null) return
+            var tmp = doc.getElementsByTagName('img')
+            var tmplen = tmp.length
+            var imgobj = []
+    
+            for (var i = 0; i < tmplen; i++) {
+                var _tmpobj = tmp[i]
+                if (_tmpobj.getAttribute('data-src') !== null) {
+                    if (isLoad(_tmpobj)) {
+                        setimg(_tmpobj)
+                    } else {
+                        imgobj.push(_tmpobj)
+                    }
                 }
             }
-        }
+            var len = imgobj.length
+            function handler () {
+                for (var i = 0, end = len; i < end; i++) {
+                    var obj = imgobj[i]
+                    if (isLoad(obj)) {
+                        _setimg(obj)
+                        imgobj.splice(i, 1)
+                        len--
+                        if (len === 0) {
+                            loadstop()
+                        }
+                    }
+                }
+            }
     
-        // 4、在页面onload的时候，触发一次onscroll
-        window.onscroll()
+            function isLoad (ele) {
+                var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
+                if (typeof ele === 'undefined') return false
+                var edit = ~~ele.getAttribute('data-range') || options.lazyRange
+                var clientHeight = scrollTop + document.documentElement.clientHeight + edit
+                var offsetTop = 0
+    
+                while (ele.tagName.toUpperCase() !== 'BODY') {
+                    offsetTop += ele.offsetTop
+                    ele = ele.offsetParent
+                }
+                return (clientHeight > offsetTop)
+            }
+    
+            function _setimg (ele) {
+                if (options.lazyTime) {
+                    setTimeout(function () {
+                        setimg(ele)
+                    },
+                    options.lazyTime + ~~ele.getAttribute('data-time'))
+                } else {
+                    setimg(ele)
+                }
+            }
+    
+            function setimg (ele) {
+                ele.src = ele.getAttribute('data-src')
+            }
+    
+            function loadstop () {
+                window.removeEventListener ? window.removeEventListener('scroll', handler, false) : window.detachEvent('onscroll', handler)
+            }
+    
+            loadstop()
+            window.addEventListener ? window.addEventListener('scroll', handler, false) : window.attachEvent('onscroll', handler)
+        }
 
+        lazyload({
+            id: 'imgs',
+            lazyTime: 200,
+            lazyRange: 100
+        })
+    }
 
+    // componentWillMount () {
+    //     let loadingImg = 'http://1.lazyloading.sinaapp.com/Lazy/images/loading.gif'
+    //     let allImgs = this.state.allImgs
+    
+    //     // 1、获取对象距离页面顶端的距离
+    //     const getHeight = (obj)=> {
+    //         let h = 0
+    //         while(obj) {
+    //             h += obj.offsetTop          // 距离上一个标签对距离
+    //             obj = obj.offsetParent      // 
+    //         }
+    //         return h
+    //     }
+    
+    //     // 2、判断是否在可视区域内
+    //     const isVisible = (obj)=> {
+    //         let t = document.documentElement.clientHeight + (document.documentElement.scrollTop || document.body.scrollTop)
+    //         let h = getHeight(obj)
+    //         console.log(h, 'h')
+    //         return (h < t)          // true 则视为在可是范围内
+    //     }
+    
+    //     // 5、去获取 需要展示出来图片的 src
+    //     const setImg = (index) => {
+    //         console.log(index, 'index')
+    //         let imgDiv = document.getElementById('imgs')
+    //         let allImgs = imgDiv.children
+    //         let curSrc = ''
+    //         if(allImgs[index].children[0].dataset) {
+    //             curSrc = allImgs[index].children[0].dataset
+    //         } else {
+    //             curSrc = allImgs[index].children[0].getAttribute('data-src')
+    //         }
+
+    //         let curImgs = document.createElement('img')
+    //         curImgs.src = curSrc.src
+    //         // allImgs[index].children[0].src = curSrc.src
+    //         if (allImgs[index].children.length == 1) {
+    //             allImgs[index].appendChild(curImgs)
+    //         }
+    //     }
+
+    //     // 3、绑定滚动事件，进行判断那些元素在可视区域内，然后进行图片加载
+    //     window.onscroll = function() {
+    //         let imgDiv = document.getElementById('imgs')
+    //         let allImgs = imgDiv.children
+    //         for (let i = 0; i < allImgs.length; i++) {
+    //             let element = allImgs[i]
+
+    //             if (isVisible(element)) {
+    //                 // setTimeout('setImg( '+ i + ')', 500)
+    //                 // setImg(i)
+    //                 setTimeout((()=>{
+    //                     let index = i
+    //                     setImg(index)
+    //                 })(i), 1000)
+    //             }
+    //         }
+    //     }
+    
+    //     // 4、在页面onload的时候，触发一次onscroll
+    //     // window.onscroll()
+    // }
+
+    componentWillUnmount() {
+        window.onscroll = null
     }
 
     render() {
