@@ -19,14 +19,32 @@ class LazyLoad extends React.Component{
     }
     componentDidMount() {
 
-        function lazyload (options) {
-            var doc = options.id ? document.getElementById(options.id) : document
+        const lazyload = (options) => {
+            let doc = options.id ? document.getElementById(options.id) : document
             if (doc === null) return
-            var tmp = doc.getElementsByTagName('img')
-            var tmplen = tmp.length
-            var imgobj = []
+            let tmp = doc.getElementsByTagName('img')
+            let tmplen = tmp.length
+            let imgobj = []
+
+            const isLoad = (ele) => {
+                let scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
+                if (typeof ele === 'undefined') return false
+                let edit = ~~ele.getAttribute('data-range') || options.lazyRange
+                let clientHeight = scrollTop + document.documentElement.clientHeight + edit
+                let offsetTop = 0
     
-            for (var i = 0; i < tmplen; i++) {
+                while (ele.tagName.toUpperCase() !== 'BODY') {
+                    offsetTop += ele.offsetTop
+                    ele = ele.offsetParent
+                }
+                return (clientHeight > offsetTop)
+            }
+
+            const setimg = (ele) => {
+                ele.src = ele.getAttribute('data-src')
+            }
+
+            for (let i = 0; i < tmplen; i++) {
                 var _tmpobj = tmp[i]
                 if (_tmpobj.getAttribute('data-src') !== null) {
                     if (isLoad(_tmpobj)) {
@@ -36,10 +54,10 @@ class LazyLoad extends React.Component{
                     }
                 }
             }
-            var len = imgobj.length
-            function handler () {
-                for (var i = 0, end = len; i < end; i++) {
-                    var obj = imgobj[i]
+            let len = imgobj.length
+            const handler = () => {
+                for (let i = 0, end = len; i < end; i++) {
+                    let obj = imgobj[i]
                     if (isLoad(obj)) {
                         _setimg(obj)
                         imgobj.splice(i, 1)
@@ -51,21 +69,7 @@ class LazyLoad extends React.Component{
                 }
             }
     
-            function isLoad (ele) {
-                var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
-                if (typeof ele === 'undefined') return false
-                var edit = ~~ele.getAttribute('data-range') || options.lazyRange
-                var clientHeight = scrollTop + document.documentElement.clientHeight + edit
-                var offsetTop = 0
-    
-                while (ele.tagName.toUpperCase() !== 'BODY') {
-                    offsetTop += ele.offsetTop
-                    ele = ele.offsetParent
-                }
-                return (clientHeight > offsetTop)
-            }
-    
-            function _setimg (ele) {
+            const _setimg = (ele) => {
                 if (options.lazyTime) {
                     setTimeout(function () {
                         setimg(ele)
@@ -76,11 +80,7 @@ class LazyLoad extends React.Component{
                 }
             }
     
-            function setimg (ele) {
-                ele.src = ele.getAttribute('data-src')
-            }
-    
-            function loadstop () {
+            const loadstop = () => {
                 window.removeEventListener ? window.removeEventListener('scroll', handler, false) : window.detachEvent('onscroll', handler)
             }
     
