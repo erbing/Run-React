@@ -43,10 +43,12 @@ class LazyLoad extends React.Component{
                 return (clientHeight > offsetTop)
             }
 
+            // 给已经到了可以显示图片位置的 img 标签添加 src 值
             const setimg = (ele) => {
                 ele.src = ele.getAttribute('data-src')
             }
 
+            // 遍历当前 dom 内所有要显示的 img 标签
             for (let i = 0; i < tmplen; i++) {
                 var _tmpobj = tmp[i]
                 if (_tmpobj.getAttribute('data-src') !== null) {
@@ -57,6 +59,8 @@ class LazyLoad extends React.Component{
                     }
                 }
             }
+
+            // 滚动的时候动态 判断当前 元素的是否 可以赋值
             let len = imgobj.length
             const handler = () => {
                 for (let i = 0, end = len; i < end; i++) {
@@ -72,6 +76,7 @@ class LazyLoad extends React.Component{
                 }
             }
     
+            // 根据上下文要求动态低进行 图片 src 赋值
             const _setimg = (ele) => {
                 if (options.lazyTime) {
                     setTimeout(function () {
@@ -82,12 +87,14 @@ class LazyLoad extends React.Component{
                     setimg(ele)
                 }
             }
-    
+            
+            // 去除 滚动事件监听
             const loadstop = () => {
                 window.removeEventListener ? window.removeEventListener('scroll', handler, false) : window.detachEvent('onscroll', handler)
             }
     
             loadstop()
+            // 添加滚动事件监听
             window.addEventListener ? window.addEventListener('scroll', handler, false) : window.attachEvent('onscroll', handler)
         }
 
@@ -97,70 +104,6 @@ class LazyLoad extends React.Component{
             lazyRange: 100
         })
     }
-
-    // componentWillMount () {
-    //     let loadingImg = 'http://1.lazyloading.sinaapp.com/Lazy/images/loading.gif'
-    //     let allImgs = this.state.allImgs
-    
-    //     // 1、获取对象距离页面顶端的距离
-    //     const getHeight = (obj)=> {
-    //         let h = 0
-    //         while(obj) {
-    //             h += obj.offsetTop          // 距离上一个标签对距离
-    //             obj = obj.offsetParent      // 
-    //         }
-    //         return h
-    //     }
-    
-    //     // 2、判断是否在可视区域内
-    //     const isVisible = (obj)=> {
-    //         let t = document.documentElement.clientHeight + (document.documentElement.scrollTop || document.body.scrollTop)
-    //         let h = getHeight(obj)
-    //         console.log(h, 'h')
-    //         return (h < t)          // true 则视为在可是范围内
-    //     }
-    
-    //     // 5、去获取 需要展示出来图片的 src
-    //     const setImg = (index) => {
-    //         console.log(index, 'index')
-    //         let imgDiv = document.getElementById('imgs')
-    //         let allImgs = imgDiv.children
-    //         let curSrc = ''
-    //         if(allImgs[index].children[0].dataset) {
-    //             curSrc = allImgs[index].children[0].dataset
-    //         } else {
-    //             curSrc = allImgs[index].children[0].getAttribute('data-src')
-    //         }
-
-    //         let curImgs = document.createElement('img')
-    //         curImgs.src = curSrc.src
-    //         // allImgs[index].children[0].src = curSrc.src
-    //         if (allImgs[index].children.length == 1) {
-    //             allImgs[index].appendChild(curImgs)
-    //         }
-    //     }
-
-    //     // 3、绑定滚动事件，进行判断那些元素在可视区域内，然后进行图片加载
-    //     window.onscroll = function() {
-    //         let imgDiv = document.getElementById('imgs')
-    //         let allImgs = imgDiv.children
-    //         for (let i = 0; i < allImgs.length; i++) {
-    //             let element = allImgs[i]
-
-    //             if (isVisible(element)) {
-    //                 // setTimeout('setImg( '+ i + ')', 500)
-    //                 // setImg(i)
-    //                 setTimeout((()=>{
-    //                     let index = i
-    //                     setImg(index)
-    //                 })(i), 1000)
-    //             }
-    //         }
-    //     }
-    
-    //     // 4、在页面onload的时候，触发一次onscroll
-    //     // window.onscroll()
-    // }
 
     componentWillUnmount() {
         window.onscroll = null
