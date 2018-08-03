@@ -20,12 +20,15 @@ class LazyLoad extends React.Component{
     componentDidMount() {
 
         const lazyload = (options) => {
+            // 获取图片外部dom
             let doc = options.id ? document.getElementById(options.id) : document
             if (doc === null) return
+            // 获取当前dom 内，所有的图片标签
             let tmp = doc.getElementsByTagName('img')
             let tmplen = tmp.length
             let imgobj = []
 
+            // 判断当前 元素是否到了应该显示的 位置
             const isLoad = (ele) => {
                 let scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
                 if (typeof ele === 'undefined') return false
