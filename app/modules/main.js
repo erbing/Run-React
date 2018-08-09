@@ -11,12 +11,16 @@ import Btn from '../pages/button'
 import About from '../pages/about'
 import LazyLoad from '../pages/lazyLoad'
 
+import Skr from '../component/skeleton/index.js'
+
+console.log(Skr)
 
 const Home = (props) => (
     <div className="router">
         this is home pages
         <i className="icon icon-appreciate"></i>
         <i className="icon icon-check"></i>
+        {Skr}
     </div>
 )
 
