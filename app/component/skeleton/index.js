@@ -33,7 +33,7 @@ class Skr extends React.Component {
 }
 
 console.log(style)
-console.log(renderToStaticMarkup(<Skr />) )
+console.log(renderToStaticMarkup(<Skr />))
 
 const html = '<style>' + {style} + '</style>' + renderToStaticMarkup(<Skr />)
 
