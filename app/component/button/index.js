@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.less";
+import Box from "@component/box";
 
 class Button extends React.Component {
   constructor(props) {
@@ -8,7 +9,9 @@ class Button extends React.Component {
   render() {
     return (
       <div>
-        <button className="comp-button">123</button>
+        <Box>
+          <button className="comp-button">123</button>
+        </Box>
       </div>
     );
   }
