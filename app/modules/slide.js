@@ -1,6 +1,8 @@
 import React from "react";
 import { Switch, Link, Route } from "react-router-dom";
 
+import "./modules.less";
+
 const logoImg = require("../assets/img/index/logo2.jpg");
 
 export default class Header extends React.Component {
