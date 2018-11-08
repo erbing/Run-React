@@ -21,28 +21,44 @@ export default class Header extends React.Component {
 
         <ul className="slide-ul">
           <li className="slide-li">
-            <Link to={"/"}> HOME </Link>
+            <Link to={"/"}>
+              <b>Home</b> 首页
+            </Link>
           </li>
           <li className="slide-li">
-            <Link to={"/index"}>INDEX </Link>
+            <Link to={"/index"}>
+              <b>Index</b> 介绍页
+            </Link>
           </li>
           <li className="slide-li">
-            <Link to={"/my"}>MY </Link>
+            <Link to={"/my"}>
+              <b>My</b> 我的
+            </Link>
           </li>
           <li className="slide-li">
-            <Link to={"/icon"}>ICON </Link>
+            <Link to={"/icon"}>
+              <b>Icon</b> 图标
+            </Link>
           </li>
           <li className="slide-li">
-            <Link to={"/http"}>HTTP</Link>
+            <Link to={"/http"}>
+              <b>Http</b> http插件
+            </Link>
           </li>
           <li className="slide-li">
-            <Link to={"/button"}>BUTTON</Link>
+            <Link to={"/button"}>
+              <b>Button</b> 按钮
+            </Link>
           </li>
           <li className="slide-li">
-            <Link to={"/about"}>ABOUT</Link>
+            <Link to={"/about"}>
+              <b>about us</b> 关于我们
+            </Link>
           </li>
           <li className="slide-li">
-            <Link to={"/lazyLoad"}>Lazy Load</Link>
+            <Link to={"/lazyLoad"}>
+              <b>LazyLoad</b> 图片懒加载
+            </Link>
           </li>
         </ul>
       </div>
