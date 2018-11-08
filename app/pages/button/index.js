@@ -1,12 +1,14 @@
 // btn components
-import React from 'react'
+import React from "react";
+import Button from "@component/button/";
 
-const Button = () => {
-        return(
-            <h2>
-                this is Button pages
-            </h2>
-        )
-}
+const ButtonApp = props => {
+  return (
+    <div>
+      this is Button pages
+      <Button />
+    </div>
+  );
+};
 
-export default Button
+export default ButtonApp;
