@@ -5,7 +5,6 @@ import Button from "@component/button/";
 const ButtonApp = props => {
   return (
     <div>
-      this is Button pages
       <Button />
     </div>
   );
