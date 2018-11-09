@@ -6,7 +6,23 @@ class Box extends React.Component {
     super(props);
   }
   render() {
-    return <div className="h5-box">{this.props.children}</div>;
+    return (
+      <div className="h5-box">
+        <div className="h5-box-header flex-y flex-between">
+          <div className="title flex-y">
+            <i className="icon-sort icon icon-box" />
+            <div className="title-right">
+              <span>按钮</span>
+              <span className="title-right-name">Button</span>
+            </div>
+          </div>
+          <div className="github">
+            <i className="icon-favor icon icon-box" />
+          </div>
+        </div>
+        {this.props.children}
+      </div>
+    );
   }
 }
 

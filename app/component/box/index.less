@@ -1,7 +1,24 @@
 @import "../../assets/common/common.less";
 
 .h5-box {
-  width: 414px;
-  height: 736px;
-  border: 1px solid @grey500;
+  width: 375px;
+  height: 667px;
+  border: 1px solid @grey300;
+  overflow-y: auto;
+  .h5-box-header {
+    height: 60px;
+    background: @grey200;
+    padding: 0 15px;
+    .title-right {
+      margin-left: 10px;
+      color: @grey600;
+      .title-right-name {
+        margin-left: 10px;
+        color: @grey600;
+      }
+    }
+    .icon-box {
+      color: @react;
+    }
+  }
 }

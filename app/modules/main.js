@@ -13,7 +13,7 @@ import LazyLoad from "../pages/lazyLoad";
 
 import Skr from "../component/skeleton/index.js";
 
-console.log(Skr);
+// console.log(Skr);
 
 const Home = props => (
   <div className="router">
