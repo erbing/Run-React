@@ -1,6 +1,6 @@
 import React from "react";
-import "./index.less";
 import Box from "@component/box";
+import "./index.less";
 
 class Button extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class Button extends React.Component {
     return (
       <div>
         <Box>
-          <button className="comp-button">123</button>
+          <a className="run-button run-a">default</a>
         </Box>
       </div>
     );
