@@ -1,11 +1,14 @@
 // btn components
 import React from "react";
 import Button from "@component/button/";
+import Box from "@component/box";
 
 const ButtonApp = props => {
   return (
     <div>
-      <Button />
+      <Box>
+        <Button />
+      </Box>
     </div>
   );
 };
