@@ -139,9 +139,20 @@ div {
   box-sizing: border-box;
 }
 
-a {
-  color: #fff;
-  text-decoration: none !important;
+// a {
+//   color: #fff;
+//   text-decoration: none !important;
+// }
+a,
+a:active,
+a:visited,
+a:link,
+a:focus {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  background: none;
+  text-decoration: none;
 }
 body,
 button {
