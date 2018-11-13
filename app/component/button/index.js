@@ -10,7 +10,7 @@ class Button extends React.Component {
     let { type } = this.props;
 
     return (
-      <a className={"run-button " + "run-" + type}>
+      <a className={"run-button " + "run-button-" + (type ? type : "default")}>
         <span>default</span>
       </a>
     );
