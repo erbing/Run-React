@@ -8,6 +8,7 @@ const ButtonApp = props => {
     <div>
       <Box>
         <Button />
+        <Button type="primary" />
       </Box>
     </div>
   );

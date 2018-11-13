@@ -16,7 +16,8 @@ let webpackConfig = {
   resolve: {
     extensions: [".jsx", ".js", ".json"],
     alias: {
-      "@component": path.resolve(__dirname, "./app/component")
+      "@component": path.resolve(__dirname, "./app/component"),
+      "@common": path.resolve(__dirname, "./app/assets/common")
     }
   },
   module: {

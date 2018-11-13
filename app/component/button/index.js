@@ -7,10 +7,12 @@ class Button extends React.Component {
     super(props);
   }
   render() {
+    let { type } = this.props;
+
     return (
-      <div>
-        <a className="run-button run-a">default</a>
-      </div>
+      <a className={"run-button " + "run-" + type}>
+        <span>default</span>
+      </a>
     );
   }
 }

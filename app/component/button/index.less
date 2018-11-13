@@ -1,3 +1,4 @@
+@import "../../assets/common/common.less";
 .run-button {
   appearance: none;
   -webkit-user-select: none;
@@ -19,13 +20,11 @@
   transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
   user-select: none;
   vertical-align: middle;
-  // &:hover {
-  //   background-color: #fff;
-  //   border-color: #e6e6e6;
-  //   color: #464646;
-  // }
+  background: transparent;
+  margin: 10px;
 }
 
-.run-a {
-  background: transparent;
+.run-primary {
+  background-color: @primary;
+  color: #fff;
 }
