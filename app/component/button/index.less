@@ -34,6 +34,14 @@
     text-decoration: none;
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
   }
+  .disabled {
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+
+    &:active {
+      transition: none;
+    }
+  }
 }
 
 // a:active {
@@ -88,4 +96,19 @@
     text-decoration: none;
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
   }
+}
+
+.display {
+  display: block;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  // -webkit-filter: grayscale(100%);
+  // -moz-filter: grayscale(100%);
+  // -ms-filter: grayscale(100%);
+  // -o-filter: grayscale(100%);
+  // filter: grayscale(100%);
+  // filter: gray;
 }
