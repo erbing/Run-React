@@ -1,13 +1,13 @@
-// btn components show page
+// color components show page
 import React from "react";
-import Button from "@component/button/";
+import Button from "@component/button";
 import Box from "@component/box";
 import BoxTitle from "@component/boxTitle";
 
-const ButtonApp = props => {
+const ColorApp = props => {
   return (
     <div>
-      <Box title="按钮 Button">
+      <Box title="色彩 Color">
         <BoxTitle title="基本用法" />
         <Button text="default" />
         <Button type="primary" text="primary" />
@@ -40,4 +40,4 @@ const ButtonApp = props => {
   );
 };
 
-export default ButtonApp;
+export default ColorApp;

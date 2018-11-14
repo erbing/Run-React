@@ -26,6 +26,17 @@ export default class Header extends React.Component {
             </Link>
           </li>
           <li className="slide-li">
+            <Link to={"/color"}>
+              <b>Color</b> 颜色
+            </Link>
+          </li>
+          <li className="slide-li">
+            <Link to={"/button"}>
+              <b>Button</b> 按钮
+            </Link>
+          </li>
+
+          <li className="slide-li">
             <Link to={"/index"}>
               <b>Index</b> 介绍页
             </Link>
@@ -45,11 +56,7 @@ export default class Header extends React.Component {
               <b>Http</b> http插件
             </Link>
           </li>
-          <li className="slide-li">
-            <Link to={"/button"}>
-              <b>Button</b> 按钮
-            </Link>
-          </li>
+
           <li className="slide-li">
             <Link to={"/about"}>
               <b>about us</b> 关于我们

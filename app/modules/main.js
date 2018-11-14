@@ -8,6 +8,7 @@ import Index from "../pages/index";
 import Icons from "../pages/icon";
 import Http from "../pages/http";
 import Btn from "../pages/button";
+import Color from "../pages/color";
 import About from "../pages/about";
 import LazyLoad from "../pages/lazyLoad";
 
@@ -54,6 +55,7 @@ const Main = () => (
       <Route path="/icon" component={Icon} />
       <Route path="/http" component={Http} />
       <Route path="/button" component={Btn} />
+      <Route path="/color" component={Color} />
       <Route path="/about" component={About} />
       <Route path="/lazyLoad" component={LazyLoad} />
     </Switch>

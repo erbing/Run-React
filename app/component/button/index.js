@@ -21,7 +21,6 @@ class Button extends React.Component {
         width: "44px"
       };
     }
-    console.log(styles, 123);
     return (
       <a
         className={
