@@ -55,3 +55,37 @@
     transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
   }
 }
+
+.run-button-warning {
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  background-color: @orange500;
+  color: #fff;
+  border: 1px solid @orange500;
+  &:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    background: transparent;
+    background-color: @orange700;
+    border: 1px solid @orange700;
+    text-decoration: none;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  }
+}
+
+.run-button-error {
+  transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  background-color: @red300;
+  color: #fff;
+  border: 1px solid @red300;
+  &:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    background: transparent;
+    background-color: @red500;
+    border: 1px solid @red500;
+    text-decoration: none;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+  }
+}

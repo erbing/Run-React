@@ -20,7 +20,7 @@ class Box extends React.Component {
             <i className="icon-favor icon icon-box" />
           </div>
         </div>
-        {this.props.children}
+        <div className="h5-box-content">{this.props.children}</div>
       </div>
     );
   }
