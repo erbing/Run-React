@@ -78,22 +78,75 @@ const ColorApp = props => {
           </div>
         </div>
 
-        <div className="flex-betweeny">
-          <div className="color-block">
+        <div className="flex-between">
+          <div className="color-blocks">
             <BoxTitle title="墨绿色 色板" />
+            <Block color="#e3f1f1" textColor="#fff" text="#e3f1f1" />
+            <Block color="#bbdedb" textColor="#fff" text="#bbdedb" />
+            <Block color="#91c9c4" textColor="#fff" text="#91c9c4" />
+            <Block color="#6ab4ac" textColor="#fff" text="#6ab4ac" />
+            <Block color="#51a39a" textColor="#fff" text="#51a39a" />
+            <Block color="#419488" textColor="#fff" text="#419488" />
+            <Block color="#3b877b" textColor="#fff" text="#3b877b" />
+            <Block color="#33776b" textColor="#fff" text="#33776b" />
+            <Block color="#2c675c" textColor="#fff" text="#2c675c" />
+            <Block color="#1e4c40" textColor="#fff" text="#1e4c40" />
+            <Block color="#bbfcec" textColor="#fff" text="#bbfcec" />
+            <Block color="#91fbdc" textColor="#fff" text="#91fbdc" />
+            <Block color="#6de5b9" textColor="#fff" text="#6de5b9" />
+            <Block color="#55bca6" textColor="#fff" text="#55bca6" />
           </div>
 
-          <div className="color-block">
+          <div className="color-blocks">
             <BoxTitle title="绿色 色板" />
+            <Block color="#d8f6d1" textColor="#fff" text="#d8f6d1" />
+            <Block color="#b2e6aa" textColor="#fff" text="#b2e6aa" />
+            <Block color="#8bd27d" textColor="#fff" text="#8bd27d" />
+            <Block color="#67b953" textColor="#fff" text="#67b953" />
+            <Block color="#57ab41" textColor="#fff" text="#57ab41" />
+            <Block color="#4d9838" textColor="#fff" text="#4d9838" />
+            <Block color="#408c29" textColor="#fff" text="#408c29" />
+            <Block color="#387b23" textColor="#fff" text="#387b23" />
+            <Block color="#306d1c" textColor="#fff" text="#306d1c" />
+            <Block color="#255114" textColor="#fff" text="#255114" />
+            <Block color="#b5f498" textColor="#fff" text="#b5f498" />
+            <Block color="#86ed6e" textColor="#fff" text="#86ed6e" />
+            <Block color="#6be248" textColor="#fff" text="#6be248" />
+            <Block color="#5cc339" textColor="#fff" text="#5cc339" />
           </div>
 
-          <div className="color-block">
+          <div className="color-blocks">
             <BoxTitle title="橘色 色板" />
+            <Block color="#fae0b8" textColor="#fff" text="#fae0b8" />
+            <Block color="#f7cd8b" textColor="#fff" text="#f7cd8b" />
+            <Block color="#f5b961" textColor="#fff" text="#f5b961" />
+            <Block color="#f3aa47" textColor="#fff" text="#f3aa47" />
+            <Block color="#f19c38" textColor="#fff" text="#f19c38" />
+            <Block color="#ec9135" textColor="#fff" text="#ec9135" />
+            <Block color="#e68231" textColor="#fff" text="#e68231" />
+            <Block color="#df732c" textColor="#fff" text="#df732c" />
+            <Block color="#d55b26" textColor="#fff" text="#d55b26" />
+            <Block color="#f8d28b" textColor="#fff" text="#f8d28b" />
+            <Block color="#f3ae56" textColor="#fff" text="#f3ae56" />
+            <Block color="#f09537" textColor="#fff" text="#f09537" />
+            <Block color="#ee752f" textColor="#fff" text="#ee752f" />
+            {/* <Block color="#526cf6" textColor="#fff" text="#526cf6" /> */}
           </div>
         </div>
         <div className="flex-between">
-          <div className="color-block">
+          <div className="color-blocks">
             <BoxTitle title="灰色 色板" />
+            <Block color="#fafafa" textColor="#9e9e9e" text="#fafafa" />
+            <Block color="#f5f5f5" textColor="#9e9e9e" text="#f5f5f5" />
+            <Block color="#eeeeee" textColor="#9e9e9e" text="#eeeeee" />
+            <Block color="#e0e0e0" textColor="#fff" text="#e0e0e0" />
+            <Block color="#bdbdbd" textColor="#fff" text="#bdbdbd" />
+            <Block color="#9e9e9e" textColor="#fff" text="#9e9e9e" />
+            <Block color="#757575" textColor="#fff" text="#757575" />
+            <Block color="#616161" textColor="#fff" text="#616161" />
+            <Block color="#424242" textColor="#fff" text="#424242" />
+            <Block color="#212121" textColor="#fff" text="#212121" />
+            <Block color="#000000" textColor="#fff" text="#000000" />
           </div>
         </div>
       </Box>
