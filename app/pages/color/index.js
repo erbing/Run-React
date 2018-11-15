@@ -78,7 +78,7 @@ const ColorApp = props => {
           </div>
         </div>
 
-        {/* <div className="flex-y">
+        <div className="flex-betweeny">
           <div className="color-block">
             <BoxTitle title="墨绿色 色板" />
           </div>
@@ -91,11 +91,11 @@ const ColorApp = props => {
             <BoxTitle title="橘色 色板" />
           </div>
         </div>
-        <div className="flex-y">
+        <div className="flex-between">
           <div className="color-block">
             <BoxTitle title="灰色 色板" />
           </div>
-        </div> */}
+        </div>
       </Box>
     </div>
   );
