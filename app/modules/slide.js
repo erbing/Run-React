@@ -30,6 +30,13 @@ export default class Header extends React.Component {
               <b>Color</b> 颜色
             </Link>
           </li>
+
+          <li className="slide-li">
+            <Link to={"/icon"}>
+              <b>Icon</b> 图标
+            </Link>
+          </li>
+
           <li className="slide-li">
             <Link to={"/button"}>
               <b>Button</b> 按钮
@@ -37,31 +44,35 @@ export default class Header extends React.Component {
           </li>
 
           <li className="slide-li">
-            <Link to={"/index"}>
-              <b>Index</b> 介绍页
+            <Link to={"/switch"}>
+              <b>Switch</b> 开关
             </Link>
           </li>
+
           <li className="slide-li">
-            <Link to={"/my"}>
-              <b>My</b> 我的
+            <Link to={"/input"}>
+              <b>Input</b> 输入框
             </Link>
           </li>
+
           <li className="slide-li">
-            <Link to={"/icon"}>
-              <b>Icon</b> 图标
+            <Link to={"/radio"}>
+              <b>Radio</b> 单选框
             </Link>
           </li>
+
+          <li className="slide-li">
+            <Link to={"/checkbox"}>
+              <b>Checkbox</b> 复选框
+            </Link>
+          </li>
+
           <li className="slide-li">
             <Link to={"/http"}>
               <b>Http</b> http插件
             </Link>
           </li>
 
-          <li className="slide-li">
-            <Link to={"/about"}>
-              <b>about us</b> 关于我们
-            </Link>
-          </li>
           <li className="slide-li">
             <Link to={"/lazyLoad"}>
               <b>LazyLoad</b> 图片懒加载
