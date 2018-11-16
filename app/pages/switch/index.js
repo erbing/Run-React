@@ -9,7 +9,9 @@ const SwitchApp = props => {
     <div>
       <Box title="开关 Switch">
         <BoxTitle title="基本用法" />
-        <Switch />
+        <div className="">
+          <Switch />
+        </div>
       </Box>
     </div>
   );

@@ -4,9 +4,9 @@ import "./index.less";
 const Switch = props => {
   let { title } = props;
   return (
-    <div className="box-title">
-      <span className="box-title-span">{title}</span>
-    </div>
+    <span>
+      <input type="checkbox" className="switch-input" />
+    </span>
   );
 };
 
