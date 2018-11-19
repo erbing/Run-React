@@ -31,6 +31,7 @@ class Button extends React.Component {
           (disabled ? " disabled" : " ")
         }
         style={styles}
+        {...this.props}
       >
         <span>{text}</span>
       </a>
