@@ -6,10 +6,10 @@ class Box extends React.Component {
     super(props);
   }
   render() {
-    let { title } = this.props;
+    let { title, style } = this.props;
     let titles = title.split(" ");
     return (
-      <div className="h5-box">
+      <div className="h5-box" {...this.props}>
         <div className="h5-box-header flex-y flex-between">
           <div className="title flex-y">
             <i className="icon-sort icon icon-box" />
