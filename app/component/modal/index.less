@@ -1,0 +1,50 @@
+@import "../../assets/common/common.less";
+.run-modal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  .run-modal-wrapper {
+    margin: auto 0;
+    width: 100%;
+    .run-modal-dialog {
+      background-color: #fff;
+      box-shadow: 0 7px 21px rgba(56, 56, 56, 0.15);
+      margin: 60px auto;
+      overflow: hidden;
+      position: relative;
+      z-index: 1001;
+      width: 70%;
+      .run-modal-header {
+        position: relative;
+        padding: 20px 15px 0;
+        text-align: center;
+        .run-modal-header-title {
+          font-size: 17px;
+          line-height: 1;
+          color: #333;
+        }
+        .run-modal-header-close {
+          position: absolute;
+          top: 0;
+          right: 15px;
+          font-size: 20px;
+          line-height: 50px;
+          color: #999;
+          cursor: pointer;
+        }
+      }
+      .run-modal-content {
+        font-size: 15px;
+        color: #999;
+        padding: 16px;
+        overflow: auto;
+      }
+    }
+  }
+}

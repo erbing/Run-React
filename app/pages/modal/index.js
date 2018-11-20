@@ -4,8 +4,12 @@ import Button from "@component/button";
 import Item from "@component/item";
 import Box from "@component/box";
 import BoxTitle from "@component/boxTitle";
+import Modal from "@component/modal";
 
 const ModalApp = props => {
+  let state = {
+    show: true
+  };
   let curStyle = {
     width: "375px"
   };
@@ -25,6 +29,7 @@ const ModalApp = props => {
         <BoxTitle title="基本用法" />
         <Item text="普通">
           <Button text="开启" style={curBtnStyle} onClick={open} />
+          <Modal title="标题" content="模态框内容" visible={state.show} />
         </Item>
 
         <Item text="普通">
