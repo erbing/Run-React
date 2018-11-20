@@ -21,7 +21,7 @@ const ModalApp = props => {
       <Box title="模态框 Modal" style={curStyle}>
         <BoxTitle title="基本用法" />
         <Item text="普通">
-          <Button text="开启" style={curBtnStyle} onClick={}/>
+          <Button text="开启" style={curBtnStyle} />
         </Item>
 
         <Item text="普通">
