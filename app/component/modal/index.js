@@ -19,7 +19,7 @@ class Modal extends React.Component {
   }
 
   render() {
-    let { title, content, visible } = this.props;
+    let { title, content, visible, onClose, ...others } = this.props;
     let maskStyle = {
       width: "70%",
       animationDuration: "200ms"
@@ -32,10 +32,7 @@ class Modal extends React.Component {
             <div className="run-modal-dialog" style={maskStyle}>
               <div className="run-modal-header">
                 <div className="run-modal-header-title">{title}</div>
-                <div
-                  className="run-modal-header-close"
-                  onClick={() => this.close()}
-                >
+                <div className="run-modal-header-close" onClick={onClose}>
                   <i className="icon-close_light icon" />
                 </div>
               </div>
