@@ -1,3 +1,4 @@
+@import "../../assets/common/animation.less";
 .run-mask {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
@@ -6,4 +7,16 @@
   top: 0;
   width: 100%;
   z-index: 999;
+  animation: masks 0.2s ease;
+}
+
+.run-mask-leave {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  animation: masksLeave 0.2s ease;
 }

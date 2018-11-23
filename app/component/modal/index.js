@@ -40,7 +40,7 @@ class Modal extends React.Component {
               {/* <div className="run-modal-confirm">确定</div> */}
             </div>
           </div>
-          <Mast />
+          <Mast visiblemask={visible ? "1" : "0"} />
         </div>
       )
     );
