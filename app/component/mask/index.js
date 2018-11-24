@@ -5,9 +5,7 @@ const Mask = props => {
   let { visiblemask } = props;
   return (
     <div
-      className={
-        "run-mask" + visiblemask == 1 ? "mask-transition" : "run-mask-leave"
-      }
+      className={visiblemask == 1 ? "run-mask" : "run-mask-leave"}
       {...props}
     />
   );
