@@ -29,7 +29,12 @@ class Modal extends React.Component {
       visible && (
         <div className="run-modal">
           <div className="run-modal-wrapper">
-            <div className="run-modal-dialog" style={maskStyle}>
+            <div
+              className={
+                visible ? "run-modal-dialog run-modal-show" : "run-modal-hide"
+              }
+              style={maskStyle}
+            >
               <div className="run-modal-header">
                 <div className="run-modal-header-title">{title}</div>
                 <div className="run-modal-header-close" onClick={onClose}>

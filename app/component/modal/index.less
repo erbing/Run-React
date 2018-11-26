@@ -1,4 +1,5 @@
 @import "../../assets/common/common.less";
+@import "../../assets/common/animation.less";
 .run-modal {
   width: 100%;
   height: 100%;
@@ -45,6 +46,9 @@
         padding: 16px;
         overflow: auto;
       }
+    }
+    .run-modal-show {
+      animation: modal 0.1s ease;
     }
   }
 }
