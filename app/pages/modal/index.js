@@ -10,19 +10,20 @@ class ModalApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show: false
+      show1: false,
+      show2: false
     };
   }
 
-  open() {
+  open(key) {
     this.setState({
-      show: true
+      [`${key}`]: true
     });
   }
 
-  close() {
+  close(key) {
     this.setState({
-      show: false
+      [`${key}`]: false
     });
   }
 
@@ -47,21 +48,36 @@ class ModalApp extends React.Component {
               text="开启"
               style={curBtnStyle}
               onClick={() => {
-                this.open();
+                this.open("show1");
               }}
             />
             <Modal
               title="标题"
               content="模态框内容"
-              visible={state.show}
+              visible={state.show1}
               onClose={() => {
-                this.close();
+                this.close("show1");
               }}
             />
           </Item>
 
-          <Item text="普通">
-            <Button text="开启" style={curBtnStyle} />
+          <Item text="圆角">
+            <Button
+              text="开启"
+              style={curBtnStyle}
+              onClick={() => {
+                this.open("show2");
+              }}
+            />
+            <Modal
+              title="标题"
+              content="圆角的模态框内容"
+              type="radius"
+              visible={state.show2}
+              onClose={() => {
+                this.close("show2");
+              }}
+            />
           </Item>
         </Box>
       </div>

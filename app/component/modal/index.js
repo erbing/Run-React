@@ -19,12 +19,18 @@ class Modal extends React.Component {
   }
 
   render() {
-    let { title, content, visible, onClose, ...others } = this.props;
+    let { title, content, visible, onClose, type, ...others } = this.props;
     let maskStyle = {
       width: "70%",
       animationDuration: "200ms"
     };
-
+    let wrapperStyle = {};
+    if (type && type == "radius") {
+      // 需要圆角
+      wrapperStyle = {
+        borderRadius: "5px"
+      };
+    }
     return (
       visible && (
         <div className="run-modal">
@@ -33,7 +39,7 @@ class Modal extends React.Component {
               className={
                 visible ? "run-modal-dialog run-modal-show" : "run-modal-hide"
               }
-              style={maskStyle}
+              style={Object.assign(maskStyle, wrapperStyle)}
             >
               <div className="run-modal-header">
                 <div className="run-modal-header-title">{title}</div>
