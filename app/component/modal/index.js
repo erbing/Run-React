@@ -6,14 +6,14 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      maskClick: false,
+      maskClick: false, // 点击 mask 可用隐藏全部
+      noHead: false, // 没有 modal 的 header 部分
       alert: false,
       confirm: false
     };
   }
 
   close() {
-    console.log(123);
     this.setState({
       visible: false
     });
@@ -21,7 +21,7 @@ class Modal extends React.Component {
 
   render() {
     let { title, content, visible, onClose, type, ...others } = this.props;
-    let { maskClick } = this.state;
+    let { maskClick, noHead } = this.state;
     let maskStyle = {
       width: "70%",
       animationDuration: "200ms"
@@ -38,6 +38,11 @@ class Modal extends React.Component {
       this.state.maskClick = true;
     }
 
+    if (type && type.indexOf("noHead") > -1) {
+      this.state.maskClick = true;
+      this.state.noHead = true;
+    }
+
     return (
       visible && (
         <div className="run-modal">
@@ -48,14 +53,16 @@ class Modal extends React.Component {
               }
               style={Object.assign(maskStyle, wrapperStyle)}
             >
-              <div className="run-modal-header">
-                <div className="run-modal-header-title">{title}</div>
-                {!maskClick && (
-                  <div className="run-modal-header-close" onClick={onClose}>
-                    <i className="icon-close_light icon" />
-                  </div>
-                )}
-              </div>
+              {!noHead && (
+                <div className="run-modal-header">
+                  <div className="run-modal-header-title">{title}</div>
+                  {!maskClick && (
+                    <div className="run-modal-header-close" onClick={onClose}>
+                      <i className="icon-close_light icon" />
+                    </div>
+                  )}
+                </div>
+              )}
               <div className="run-modal-content">{content}</div>
               {/* <div className="run-modal-confirm">确定</div> */}
             </div>

@@ -12,7 +12,8 @@ class ModalApp extends React.Component {
     this.state = {
       show1: false,
       show2: false,
-      show3: false
+      show3: false,
+      show4: false
     };
   }
 
@@ -96,6 +97,25 @@ class ModalApp extends React.Component {
               visible={state.show3}
               onClose={() => {
                 this.close("show3");
+              }}
+            />
+          </Item>
+
+          <Item text="无头部">
+            <Button
+              text="开启"
+              style={curBtnStyle}
+              onClick={() => {
+                this.open("show4");
+              }}
+            />
+            <Modal
+              title="标题"
+              content="无头部的 modal 演示啊啊啊啊啊啊 啊啊啊"
+              type="radius noHead"
+              visible={state.show4}
+              onClose={() => {
+                this.close("show4");
               }}
             />
           </Item>
