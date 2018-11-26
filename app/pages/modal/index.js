@@ -11,7 +11,8 @@ class ModalApp extends React.Component {
     super(props);
     this.state = {
       show1: false,
-      show2: false
+      show2: false,
+      show3: false
     };
   }
 
@@ -76,6 +77,25 @@ class ModalApp extends React.Component {
               visible={state.show2}
               onClose={() => {
                 this.close("show2");
+              }}
+            />
+          </Item>
+
+          <Item text="点击遮罩层可关闭">
+            <Button
+              text="开启"
+              style={curBtnStyle}
+              onClick={() => {
+                this.open("show3");
+              }}
+            />
+            <Modal
+              title="标题"
+              content="圆角的模态框内容"
+              type="radius mask"
+              visible={state.show3}
+              onClose={() => {
+                this.close("show3");
               }}
             />
           </Item>

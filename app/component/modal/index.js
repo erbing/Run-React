@@ -25,12 +25,13 @@ class Modal extends React.Component {
       animationDuration: "200ms"
     };
     let wrapperStyle = {};
-    if (type && type == "radius") {
-      // 需要圆角
+    // 需要圆角
+    if (type && type.indexOf("radius") > -1) {
       wrapperStyle = {
         borderRadius: "5px"
       };
     }
+
     return (
       visible && (
         <div className="run-modal">
