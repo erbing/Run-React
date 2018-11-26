@@ -6,6 +6,7 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      maskClick: false,
       alert: false,
       confirm: false
     };
@@ -20,6 +21,7 @@ class Modal extends React.Component {
 
   render() {
     let { title, content, visible, onClose, type, ...others } = this.props;
+    let { maskClick } = this.state;
     let maskStyle = {
       width: "70%",
       animationDuration: "200ms"
@@ -30,6 +32,10 @@ class Modal extends React.Component {
       wrapperStyle = {
         borderRadius: "5px"
       };
+    }
+
+    if (type && type.indexOf("mask") > -1) {
+      this.state.maskClick = true;
     }
 
     return (
@@ -44,15 +50,26 @@ class Modal extends React.Component {
             >
               <div className="run-modal-header">
                 <div className="run-modal-header-title">{title}</div>
-                <div className="run-modal-header-close" onClick={onClose}>
-                  <i className="icon-close_light icon" />
-                </div>
+                {!maskClick && (
+                  <div className="run-modal-header-close" onClick={onClose}>
+                    <i className="icon-close_light icon" />
+                  </div>
+                )}
               </div>
               <div className="run-modal-content">{content}</div>
               {/* <div className="run-modal-confirm">确定</div> */}
             </div>
           </div>
-          <Mast visiblemask={visible ? "1" : "0"} />
+          <Mast
+            visiblemask={visible ? "1" : "0"}
+            onClick={
+              maskClick
+                ? onClose
+                : () => {
+                    return;
+                  }
+            }
+          />
         </div>
       )
     );

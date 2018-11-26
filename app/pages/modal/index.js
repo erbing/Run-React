@@ -31,7 +31,7 @@ class ModalApp extends React.Component {
   render() {
     let state = this.state;
     let curStyle = {
-      width: "375px"
+      // width: "375px"
     };
     let curBtnStyle = {
       margin: "0",
@@ -91,7 +91,7 @@ class ModalApp extends React.Component {
             />
             <Modal
               title="标题"
-              content="圆角的模态框内容"
+              content="点击遮罩层可关闭"
               type="radius mask"
               visible={state.show3}
               onClose={() => {
