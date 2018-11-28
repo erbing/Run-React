@@ -13,7 +13,9 @@ class ModalApp extends React.Component {
       show1: false,
       show2: false,
       show3: false,
-      show4: false
+      show4: false,
+      show5: false,
+      show6: false
     };
   }
 
@@ -41,6 +43,13 @@ class ModalApp extends React.Component {
       fontSize: "12px",
       padding: "0 10px"
     };
+
+    let specificBtn = {
+      background: "#eca632",
+      color: "#fff",
+      borderColor: "#eca632"
+    };
+
     return (
       <div>
         <Box title="模态框 Modal" style={curStyle}>
@@ -116,6 +125,46 @@ class ModalApp extends React.Component {
               visible={state.show4}
               onClose={() => {
                 this.close("show4");
+              }}
+            />
+          </Item>
+
+          <BoxTitle title="特定场景" />
+
+          <Item text="警告框 Alert">
+            <Button
+              text="开启"
+              style={Object.assign(specificBtn, curBtnStyle)}
+              onClick={() => {
+                this.open("show5");
+              }}
+            />
+            <Modal
+              title="标题"
+              content="模态框内容"
+              visible={state.show5}
+              type="alert"
+              onClose={() => {
+                this.close("show5");
+              }}
+            />
+          </Item>
+
+          <Item text="确认框 Confirm">
+            <Button
+              text="开启"
+              style={Object.assign(specificBtn, curBtnStyle)}
+              onClick={() => {
+                this.open("show6");
+              }}
+            />
+            <Modal
+              title="标题"
+              content="模态框内容"
+              visible={state.show6}
+              type="confirm"
+              onClose={() => {
+                this.close("show6");
               }}
             />
           </Item>

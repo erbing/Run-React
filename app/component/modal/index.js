@@ -43,6 +43,16 @@ class Modal extends React.Component {
       this.state.noHead = true;
     }
 
+    // alert 类型
+    if (type && type.indexOf("alert") > -1) {
+      this.state.alert = true;
+    }
+
+    // confirm 类型
+    if (type && type.indexOf("confirm") > -1) {
+      this.state.confirm = true;
+    }
+
     return (
       visible && (
         <div className="run-modal">
@@ -64,7 +74,7 @@ class Modal extends React.Component {
                 </div>
               )}
               <div className="run-modal-content">{content}</div>
-              {/* <div className="run-modal-confirm">确定</div> */}
+              {alert && <div className="run-modal-confirm">确定</div>}
             </div>
           </div>
           <Mast
