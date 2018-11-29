@@ -143,8 +143,8 @@ class ModalApp extends React.Component {
               title="标题"
               content="模态框内容"
               visible={state.show5}
-              type="alert"
-              onClose={() => {
+              type="radius alert"
+              onAlert={() => {
                 this.close("show5");
               }}
             />

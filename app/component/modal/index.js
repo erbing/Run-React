@@ -20,13 +20,24 @@ class Modal extends React.Component {
   }
 
   render() {
-    let { title, content, visible, onClose, type, ...others } = this.props;
-    let { maskClick, noHead } = this.state;
+    let {
+      title,
+      content,
+      visible,
+      onClose,
+      type,
+      onAlert,
+      ...others
+    } = this.props;
+    let { maskClick, noHead, alert, confirm } = this.state;
     let maskStyle = {
       width: "70%",
       animationDuration: "200ms"
     };
     let wrapperStyle = {};
+    let contentStyle = {
+      textAlign: "center"
+    };
     // 需要圆角
     if (type && type.indexOf("radius") > -1) {
       wrapperStyle = {
@@ -59,22 +70,37 @@ class Modal extends React.Component {
           <div className="run-modal-wrapper">
             <div
               className={
-                visible ? "run-modal-dialog run-modal-show" : "run-modal-hide"
+                visible ? "run-modal-dialog run-pulse" : "run-modal-hide"
               }
               style={Object.assign(maskStyle, wrapperStyle)}
             >
               {!noHead && (
                 <div className="run-modal-header">
                   <div className="run-modal-header-title">{title}</div>
-                  {!maskClick && (
-                    <div className="run-modal-header-close" onClick={onClose}>
-                      <i className="icon-close_light icon" />
-                    </div>
-                  )}
+                  {!maskClick &&
+                    !alert && (
+                      <div className="run-modal-header-close" onClick={onClose}>
+                        <i className="icon-close_light icon" />
+                      </div>
+                    )}
                 </div>
               )}
-              <div className="run-modal-content">{content}</div>
-              {alert && <div className="run-modal-confirm">确定</div>}
+              <div
+                className="run-modal-content"
+                style={alert ? contentStyle : {}}
+              >
+                {content}
+              </div>
+              {alert && (
+                <div className="run-modal-alert" onClick={onAlert}>
+                  确定
+                </div>
+              )}
+              {confirm && (
+                <div className="run-modal-alert" onClick={onAlert}>
+                  确定
+                </div>
+              )}
             </div>
           </div>
           <Mast
