@@ -27,6 +27,8 @@ class Modal extends React.Component {
       onClose,
       type,
       onAlert,
+      onSuccess,
+      onFail,
       ...others
     } = this.props;
     let { maskClick, noHead, alert, confirm } = this.state;
@@ -78,7 +80,8 @@ class Modal extends React.Component {
                 <div className="run-modal-header">
                   <div className="run-modal-header-title">{title}</div>
                   {!maskClick &&
-                    !alert && (
+                    !alert &&
+                    !confirm && (
                       <div className="run-modal-header-close" onClick={onClose}>
                         <i className="icon-close_light icon" />
                       </div>
@@ -87,7 +90,7 @@ class Modal extends React.Component {
               )}
               <div
                 className="run-modal-content"
-                style={alert ? contentStyle : {}}
+                style={alert || confirm ? contentStyle : {}}
               >
                 {content}
               </div>
@@ -97,8 +100,14 @@ class Modal extends React.Component {
                 </div>
               )}
               {confirm && (
-                <div className="run-modal-alert" onClick={onAlert}>
-                  确定
+                <div className="run-modal-confirm flex-xy">
+                  <span onClick={onSuccess} className="confirm-success">
+                    确认
+                  </span>
+                  {/* <span className="confirm-center" /> */}
+                  <span onClick={onFail} className="confirm-fail">
+                    取消
+                  </span>
                 </div>
               )}
             </div>

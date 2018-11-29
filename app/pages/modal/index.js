@@ -160,10 +160,14 @@ class ModalApp extends React.Component {
             />
             <Modal
               title="标题"
-              content="模态框内容"
+              content="你确定要这样做么？"
               visible={state.show6}
               type="confirm"
-              onClose={() => {
+              onFail={() => {
+                this.close("show6");
+              }}
+              onSuccess={() => {
+                alert("您选择了确定！");
                 this.close("show6");
               }}
             />

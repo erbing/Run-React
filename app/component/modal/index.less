@@ -54,6 +54,30 @@
         border-top: 1px solid #ddd;
         color: #333;
       }
+      .run-modal-confirm {
+        height: 50px;
+        border-top: 1px solid #ddd;
+        span {
+          width: 100%;
+          height: 50px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .confirm-center {
+          width: 1px;
+          height: 100%;
+          background: #ddd;
+        }
+        .confirm-success {
+          display: block;
+          color: @success;
+        }
+        .confirm-fail {
+          border-left: 1px solid #ddd;
+          display: block;
+          color: @error;
+        }
+      }
     }
     .run-modal-show {
       animation: modal 0.2s ease;
