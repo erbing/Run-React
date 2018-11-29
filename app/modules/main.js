@@ -12,6 +12,7 @@ import Btn from "../pages/button";
 import Color from "../pages/color";
 import Switchs from "../pages/switch";
 import Modal from "../pages/modal";
+import Toast from "../pages/toast";
 
 import About from "../pages/about";
 import LazyLoad from "../pages/lazyLoad";
@@ -62,6 +63,7 @@ const Main = () => (
       <Route path="/color" component={Color} />
       <Route path="/switch" component={Switchs} />
       <Route path="/modal" component={Modal} />
+      <Route path="/toast" component={Toast} />
       <Route path="/about" component={About} />
       <Route path="/lazyLoad" component={LazyLoad} />
     </Switch>

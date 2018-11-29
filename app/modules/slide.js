@@ -74,6 +74,12 @@ export default class Header extends React.Component {
           </li>
 
           <li className="slide-li">
+            <Link to={"/toast"}>
+              <b>Toast</b> 轻提示
+            </Link>
+          </li>
+
+          <li className="slide-li">
             <Link to={"/http"}>
               <b>Http</b> http插件
             </Link>
