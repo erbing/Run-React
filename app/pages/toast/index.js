@@ -4,18 +4,13 @@ import Button from "@component/button";
 import Item from "@component/item";
 import Box from "@component/box";
 import BoxTitle from "@component/boxTitle";
-import Modal from "@component/modal";
+import Toast from "@component/toast";
 
 class ModalApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show1: false,
-      show2: false,
-      show3: false,
-      show4: false,
-      show5: false,
-      show6: false
+      show1: false
     };
   }
 
@@ -42,9 +37,9 @@ class ModalApp extends React.Component {
     };
     return (
       <div>
-        <Box title="模态框 Modal">
+        <Box title="轻提示 Toast">
           <BoxTitle title="基本用法" />
-          <Item text="普通">
+          <Item text="错误提示">
             <Button
               text="开启"
               style={curBtnStyle}
@@ -52,14 +47,10 @@ class ModalApp extends React.Component {
                 this.open("show1");
               }}
             />
-            <Modal
-              title="标题"
-              content="模态框内容"
-              visible={state.show1}
-              onClose={() => {
-                this.close("show1");
-              }}
-            />
+
+            <Toast visible={state.show1}>
+              <div>提示信息</div>
+            </Toast>
           </Item>
         </Box>
       </div>

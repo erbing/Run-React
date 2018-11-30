@@ -1,0 +1,26 @@
+@import "../../assets/common/animation.less";
+.run-toast {
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  .run-toast-container {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 13px;
+    max-width: 70%;
+    padding: 12px 20px;
+    position: relative;
+    text-align: center;
+  }
+}
+
+.run-toast-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
