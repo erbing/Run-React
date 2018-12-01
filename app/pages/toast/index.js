@@ -1,4 +1,4 @@
-// btn components show page
+// toast components show pages
 import React from "react";
 import Button from "@component/button";
 import Item from "@component/item";
