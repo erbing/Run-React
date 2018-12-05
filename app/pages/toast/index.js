@@ -10,7 +10,11 @@ class ModalApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show1: false
+      show1: false,
+      show2: false,
+      show3: false,
+      show4: false,
+      show5: false
     };
   }
 
@@ -35,11 +39,23 @@ class ModalApp extends React.Component {
       fontSize: "12px",
       padding: "0 10px"
     };
+    let redBtnStyle = {
+      background: "#ff5050",
+      color: "#fff"
+    };
+    let warnBtnStyle = {
+      background: "#ec9131",
+      color: "#fff"
+    };
+    let successBtnStyle = {
+      background: "#12c287",
+      color: "#fff"
+    };
     return (
       <div>
         <Box title="轻提示 Toast">
           <BoxTitle title="基本用法" />
-          <Item text="错误提示">
+          <Item text="默认提示">
             <Button
               text="开启"
               style={curBtnStyle}
@@ -48,9 +64,57 @@ class ModalApp extends React.Component {
               }}
             />
 
-            <Toast visible={state.show1}>
+            <Toast visible={state.show1} time="1500" type="default">
               <div>提示信息</div>
             </Toast>
+          </Item>
+
+          <Item text="错误提示">
+            <Button
+              text="开启"
+              style={Object.assign(redBtnStyle, curBtnStyle)}
+              onClick={() => {
+                this.open("show2");
+              }}
+            />
+
+            <Toast visible={state.show2} time="1500" type="fail" />
+          </Item>
+
+          <Item text="警告提示">
+            <Button
+              text="开启"
+              style={Object.assign(warnBtnStyle, curBtnStyle)}
+              onClick={() => {
+                this.open("show5");
+              }}
+            />
+
+            <Toast visible={state.show5} time="1500" type="warning" />
+          </Item>
+
+          <Item text="成功提示">
+            <Button
+              text="开启"
+              style={Object.assign(successBtnStyle, curBtnStyle)}
+              onClick={() => {
+                this.open("show3");
+              }}
+            />
+
+            <Toast visible={state.show3} time="1500" type="success" />
+          </Item>
+
+          <BoxTitle title="加载中" />
+          <Item text="Loading">
+            <Button
+              text="开启"
+              style={Object.assign(curBtnStyle)}
+              onClick={() => {
+                this.open("show4");
+              }}
+            />
+            <Toast visible={state.show4} type="loading" />
           </Item>
         </Box>
       </div>
