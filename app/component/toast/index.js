@@ -16,7 +16,7 @@ class Toast extends React.Component {
       this.setState({
         visible: nextProps.visible
       });
-      if (this.props.type != "loading") {
+      if (true) {
         setTimeout(() => {
           console.log("setTimeout");
           this.setState({
