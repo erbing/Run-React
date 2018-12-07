@@ -13,6 +13,7 @@ import Color from "../pages/color";
 import Switchs from "../pages/switch";
 import Modal from "../pages/modal";
 import Toast from "../pages/toast";
+import ActionSheet from "../pages/actionSheet";
 
 import About from "../pages/about";
 import LazyLoad from "../pages/lazyLoad";
@@ -64,6 +65,7 @@ const Main = () => (
       <Route path="/switch" component={Switchs} />
       <Route path="/modal" component={Modal} />
       <Route path="/toast" component={Toast} />
+      <Route path="/actionSheet" component={ActionSheet} />
       <Route path="/about" component={About} />
       <Route path="/lazyLoad" component={LazyLoad} />
     </Switch>
