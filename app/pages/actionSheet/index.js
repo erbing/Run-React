@@ -4,18 +4,13 @@ import Button from "@component/button";
 import Item from "@component/item";
 import Box from "@component/box";
 import BoxTitle from "@component/boxTitle";
-import Modal from "@component/modal";
+import ActionSheet from "@component/actionSheet";
 
-class ModalApp extends React.Component {
+class ActionSheetApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show1: false,
-      show2: false,
-      show3: false,
-      show4: false,
-      show5: false,
-      show6: false
+      show1: false
     };
   }
 
@@ -62,9 +57,7 @@ class ModalApp extends React.Component {
                 this.open("show1");
               }}
             />
-            <Modal
-              title="标题"
-              content="模态框内容"
+            <ActionSheet
               visible={state.show1}
               onClose={() => {
                 this.close("show1");
@@ -77,4 +70,4 @@ class ModalApp extends React.Component {
   }
 }
 
-export default ModalApp;
+export default ActionSheetApp;
