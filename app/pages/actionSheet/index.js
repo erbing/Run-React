@@ -10,7 +10,27 @@ class ActionSheetApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show1: false
+      show1: true,
+      buttons: [
+        {
+          txt: "操作一",
+          onClick: () => {
+            console.log("操作一");
+          }
+        },
+        {
+          txt: "操作二",
+          onClick: () => {
+            console.log("操作二");
+          }
+        },
+        {
+          txt: "操作三",
+          onClick: () => {
+            console.log("操作三");
+          }
+        }
+      ]
     };
   }
 
@@ -39,15 +59,10 @@ class ActionSheetApp extends React.Component {
       padding: "0 10px"
     };
 
-    let specificBtn = {
-      background: "#eca632",
-      color: "#fff",
-      borderColor: "#eca632"
-    };
-
+    let { buttons, show1 } = this.state;
     return (
       <div>
-        <Box title="模态框 Modal" style={curStyle}>
+        <Box title="动作面板 ActionSheet" style={curStyle}>
           <BoxTitle title="基本用法" />
           <Item text="普通">
             <Button
@@ -58,7 +73,8 @@ class ActionSheetApp extends React.Component {
               }}
             />
             <ActionSheet
-              visible={state.show1}
+              visible={show1}
+              actions={buttons}
               onClose={() => {
                 this.close("show1");
               }}
