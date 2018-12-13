@@ -63,7 +63,14 @@ class ModalApp extends React.Component {
                 this.open("show1");
               }}
             />
-            <Toast visible={state.show1} time="1500" type="default">
+            <Toast
+              visible={state.show1}
+              onClose={() => {
+                this.close("show1");
+              }}
+              time="1500"
+              type="default"
+            >
               <div>提示信息</div>
             </Toast>
           </Item>
@@ -77,7 +84,14 @@ class ModalApp extends React.Component {
               }}
             />
 
-            <Toast visible={state.show2} time="1500" type="fail" />
+            <Toast
+              visible={state.show2}
+              onClose={() => {
+                this.close("show2");
+              }}
+              time="1500"
+              type="fail"
+            />
           </Item>
 
           <Item text="警告提示">
@@ -89,7 +103,14 @@ class ModalApp extends React.Component {
               }}
             />
 
-            <Toast visible={state.show5} time="1500" type="warning" />
+            <Toast
+              visible={state.show5}
+              onClose={() => {
+                this.close("show5");
+              }}
+              time="1500"
+              type="warning"
+            />
           </Item>
 
           <Item text="成功提示">
@@ -101,7 +122,14 @@ class ModalApp extends React.Component {
               }}
             />
 
-            <Toast visible={state.show3} time="1500" type="success" />
+            <Toast
+              visible={state.show3}
+              onClose={() => {
+                this.close("show3");
+              }}
+              time="1500"
+              type="success"
+            />
           </Item>
 
           <BoxTitle title="加载中" />
@@ -113,7 +141,13 @@ class ModalApp extends React.Component {
                 this.open("show4");
               }}
             />
-            <Toast visible={state.show4} type="loading" />
+            <Toast
+              visible={state.show4}
+              onClose={() => {
+                this.close("show4");
+              }}
+              type="loading"
+            />
           </Item>
         </Box>
       </div>

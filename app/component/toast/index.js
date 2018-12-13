@@ -22,6 +22,7 @@ class Toast extends React.Component {
           this.setState({
             visible: false
           });
+          nextProps.onClose();
         }, this.props.time ? this.props.time : 1500);
       }
     }
