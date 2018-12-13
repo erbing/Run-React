@@ -63,7 +63,6 @@ class ModalApp extends React.Component {
                 this.open("show1");
               }}
             />
-
             <Toast visible={state.show1} time="1500" type="default">
               <div>提示信息</div>
             </Toast>
