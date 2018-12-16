@@ -8,12 +8,12 @@ class ActionSheet extends React.Component {
     this.state = {
       maskClick: true,
       showSheet: false,
-      showVisible: false
+      showVisible: false,
+      showCancel: false
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps, "nextProps");
     if (nextProps.visible) {
       this.setState({
         showVisible: nextProps.visible
@@ -24,26 +24,26 @@ class ActionSheet extends React.Component {
         });
       }, 100);
     } else {
-      setTimeout(() => {
-        console.log("setTimeout100");
-        this.setState({
-          showSheet: false
-        });
-        // nextProps.onClose();
-      }, 100);
-      setTimeout(() => {
-        console.log("setTimeout200");
-        this.setState({
-          showVisible: false
-        });
-        // nextProps.onClose();
-      }, 100);
+      this.setState({
+        showSheet: false,
+        showVisible: false
+      });
+    }
+
+    if (
+      nextProps.visible &&
+      nextProps.onCancel &&
+      typeof nextProps.onCancel == "function"
+    ) {
+      this.setState({
+        showCancel: true
+      });
     }
   }
 
   render() {
-    let { visible, onClose, actions } = this.props;
-    let { showSheet, showVisible } = this.state;
+    let { visible, onClose, actions, onCancel } = this.props;
+    let { showSheet, showVisible, showCancel } = this.state;
     let actionStyle = {
       transitionDuration: "200ms"
     };
@@ -69,6 +69,11 @@ class ActionSheet extends React.Component {
                   </a>
                 );
               })}
+            {showCancel && (
+              <a className="action-item item-cancel" onClick={onCancel}>
+                取消
+              </a>
+            )}
           </div>
           <Mast visiblemask={visible ? "1" : "0"} onClick={onClose} />
         </div>

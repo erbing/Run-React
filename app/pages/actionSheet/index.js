@@ -11,6 +11,7 @@ class ActionSheetApp extends React.Component {
     super(props);
     this.state = {
       show1: false,
+      show2: false,
       buttons: [
         {
           txt: "操作一",
@@ -59,7 +60,7 @@ class ActionSheetApp extends React.Component {
       padding: "0 10px"
     };
 
-    let { buttons, show1 } = this.state;
+    let { buttons, show1, show2 } = this.state;
     return (
       <div>
         <Box title="动作面板 ActionSheet" style={curStyle}>
@@ -77,6 +78,26 @@ class ActionSheetApp extends React.Component {
               actions={buttons}
               onClose={() => {
                 this.close("show1");
+              }}
+            />
+          </Item>
+
+          <Item text="带取消操作">
+            <Button
+              text="开启"
+              style={curBtnStyle}
+              onClick={() => {
+                this.open("show2");
+              }}
+            />
+            <ActionSheet
+              visible={show2}
+              actions={buttons}
+              onClose={() => {
+                this.close("show2");
+              }}
+              onCancel={() => {
+                this.close("show2");
               }}
             />
           </Item>
