@@ -42,7 +42,7 @@ class ActionSheet extends React.Component {
   }
 
   render() {
-    let { visible, onClose, actions, onCancel } = this.props;
+    let { visible, onClose, actions, onCancel, type } = this.props;
     let { showSheet, showVisible, showCancel } = this.state;
     let actionStyle = {
       transitionDuration: "200ms"
@@ -56,24 +56,29 @@ class ActionSheet extends React.Component {
             }
             style={showVisible ? actionStyle : ""}
           >
-            {actions &&
-              actions.length > 0 &&
-              actions.map((action, index) => {
-                return (
-                  <a
-                    className="action-item"
-                    key={+index}
-                    onClick={action.onClick}
-                  >
-                    {action.txt}
-                  </a>
-                );
-              })}
-            {showCancel && (
-              <a className="action-item item-cancel" onClick={onCancel}>
-                取消
-              </a>
-            )}
+            <div className={type ? "item-radius" : ""}>
+              {actions &&
+                actions.length > 0 &&
+                actions.map((action, index) => {
+                  return (
+                    <a
+                      className="action-item"
+                      key={+index}
+                      onClick={action.onClick}
+                    >
+                      {action.txt}
+                    </a>
+                  );
+                })}
+            </div>
+
+            <div className={type ? "item-radius" : ""}>
+              {showCancel && (
+                <a className="action-item item-cancel" onClick={onCancel}>
+                  取消
+                </a>
+              )}
+            </div>
           </div>
           <Mast visiblemask={visible ? "1" : "0"} onClick={onClose} />
         </div>

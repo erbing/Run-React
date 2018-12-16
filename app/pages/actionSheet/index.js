@@ -12,6 +12,7 @@ class ActionSheetApp extends React.Component {
     this.state = {
       show1: false,
       show2: false,
+      show3: false,
       buttons: [
         {
           txt: "操作一",
@@ -60,7 +61,7 @@ class ActionSheetApp extends React.Component {
       padding: "0 10px"
     };
 
-    let { buttons, show1, show2 } = this.state;
+    let { buttons, show1, show2, show3 } = this.state;
     return (
       <div>
         <Box title="动作面板 ActionSheet" style={curStyle}>
@@ -99,6 +100,27 @@ class ActionSheetApp extends React.Component {
               onCancel={() => {
                 this.close("show2");
               }}
+            />
+          </Item>
+
+          <Item text="圆角、留边">
+            <Button
+              text="开启"
+              style={curBtnStyle}
+              onClick={() => {
+                this.open("show3");
+              }}
+            />
+            <ActionSheet
+              visible={show3}
+              actions={buttons}
+              onClose={() => {
+                this.close("show3");
+              }}
+              onCancel={() => {
+                this.close("show3");
+              }}
+              type="radius"
             />
           </Item>
         </Box>
