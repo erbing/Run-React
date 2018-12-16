@@ -10,7 +10,7 @@ class ActionSheetApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      show1: true,
+      show1: false,
       buttons: [
         {
           txt: "操作一",

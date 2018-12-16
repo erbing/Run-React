@@ -6,23 +6,55 @@ class ActionSheet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      maskClick: true
+      maskClick: true,
+      showSheet: false,
+      showVisible: false
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps, "nextProps");
+    if (nextProps.visible) {
+      this.setState({
+        showVisible: nextProps.visible
+      });
+      setTimeout(() => {
+        this.setState({
+          showSheet: nextProps.visible
+        });
+      }, 100);
+    } else {
+      setTimeout(() => {
+        console.log("setTimeout100");
+        this.setState({
+          showSheet: false
+        });
+        // nextProps.onClose();
+      }, 100);
+      setTimeout(() => {
+        console.log("setTimeout200");
+        this.setState({
+          showVisible: false
+        });
+        // nextProps.onClose();
+      }, 100);
+    }
   }
 
   render() {
     let { visible, onClose, actions } = this.props;
+    let { showSheet, showVisible } = this.state;
     let actionStyle = {
       transitionDuration: "200ms"
     };
     return (
-      visible && (
+      showVisible && (
         <div className="run-actionSheet">
           <div
             className={
-              !visible ? "action-main" : "action-main action-animation "
+              !showSheet ? "action-main" : "action-main action-animation "
             }
-            style={visible ? actionStyle : ""}
+            style={showVisible ? actionStyle : ""}
           >
             {actions &&
               actions.length > 0 &&

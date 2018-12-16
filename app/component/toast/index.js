@@ -10,21 +10,20 @@ class Toast extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps, "nextProps");
+    // console.log(nextProps, "nextProps");
     // clearTimeout(this.timer);
     if (nextProps.visible) {
       this.setState({
         visible: nextProps.visible
       });
-      if (true) {
-        setTimeout(() => {
-          console.log("setTimeout");
-          this.setState({
-            visible: false
-          });
-          nextProps.onClose();
-        }, this.props.time ? this.props.time : 1500);
-      }
+
+      setTimeout(() => {
+        console.log("setTimeout");
+        this.setState({
+          visible: false
+        });
+        nextProps.onClose();
+      }, this.props.time ? this.props.time : 1500);
     }
   }
 
