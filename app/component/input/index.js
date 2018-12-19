@@ -7,6 +7,11 @@ export default class Input extends React.Component {
     this.state = {};
   }
   render() {
-    return <div>234</div>;
+    let { ...others } = this.props;
+    return (
+      <div className="run-input-warper">
+        <input className="run-input show-inout" {...others} />
+      </div>
+    );
   }
 }
