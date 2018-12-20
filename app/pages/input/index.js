@@ -29,6 +29,11 @@ const InputApp = props => {
         <Item text="身份证" flex>
           <Input placeholder="请输入" />
         </Item>
+
+        <BoxTitle title="高度自适应" />
+        <Item text="数字" flex>
+          <Input placeholder="请输入" />
+        </Item>
       </Box>
     </div>
   );
