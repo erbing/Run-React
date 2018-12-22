@@ -5,7 +5,7 @@ class Radio extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: props.checked
+      checked: props.defaultChecked ? true : props.checked
     };
   }
 
@@ -22,18 +22,16 @@ class Radio extends React.Component {
     const { disabled, onChange } = this.props;
     const { checked } = this.state;
     if (disabled) {
-      console.log(213);
       return;
     }
     this.setState({
       checked: !checked
     });
-
-    // const checked = true;
-    // this.setState({ checked });
-    // if (typeof onChange === "function") {
-    //   onChange(checked);
-    // }
+    setTimeout(() => {
+      if (typeof onChange === "function") {
+        onChange(this.state.checked);
+      }
+    }, 0);
   };
 
   render() {
@@ -42,7 +40,13 @@ class Radio extends React.Component {
 
     return (
       <div className="run-radio">
-        <div className="run-radio-wrapper flex-y">
+        <div
+          className={
+            disabled
+              ? "run-radio-wrapper flex-y radio-disabled"
+              : "run-radio-wrapper flex-y"
+          }
+        >
           <span
             className={
               checked

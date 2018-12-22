@@ -8,7 +8,13 @@ import Item from "@component/item";
 
 const radios = {
   checked1: false,
-  checked2: true
+  checked2: true,
+  checked3: false,
+  checked4: true
+};
+
+const changeCheck = data => {
+  radios.checked1 = data;
 };
 
 const RadioApp = props => {
@@ -17,15 +23,22 @@ const RadioApp = props => {
       <Box title="单选框 Radio">
         <BoxTitle title="基本用法" />
         <Item radio>
-          <Radio checked={radios.checked1}>普通</Radio>
-        </Item>
-        <Item radio>
-          <Radio checked={radios.checked2} defaultChecked>
-            默认选中
+          <Radio
+            checked={radios.checked1}
+            onChange={data => {
+              changeCheck(data);
+            }}
+          >
+            普通
           </Radio>
         </Item>
         <Item radio>
-          <Radio disabled>禁用</Radio>
+          <Radio defaultChecked>默认选中</Radio>
+        </Item>
+        <Item radio>
+          <Radio checked={radios.checked3} disabled>
+            禁用
+          </Radio>
         </Item>
         <Item radio>
           <Radio defaultChecked disabled>
@@ -33,7 +46,7 @@ const RadioApp = props => {
           </Radio>
         </Item>
 
-        <BoxTitle title="高度自适应" />
+        <BoxTitle title="按钮样式" />
         <Item radio>
           <Radio>默认选中</Radio>
         </Item>
