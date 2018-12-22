@@ -48,7 +48,22 @@ const RadioApp = props => {
 
         <BoxTitle title="按钮样式" />
         <Item radio>
-          <Radio>默认选中</Radio>
+          <Radio defaultChecked>默认选中</Radio>
+        </Item>
+
+        <BoxTitle title="块级样式" />
+        <Item radio>
+          <Radio defaultChecked>默认选中</Radio>
+        </Item>
+
+        <BoxTitle title="列表样式" />
+        <Item radio>
+          <Radio defaultChecked>默认选中</Radio>
+        </Item>
+
+        <BoxTitle title="列表样式禁用状态" />
+        <Item radio>
+          <Radio defaultChecked>默认选中</Radio>
         </Item>
       </Box>
     </div>
