@@ -8,4 +8,12 @@
   vertical-align: middle;
   outline: 0;
   transition: background-color 0.1s, border 0.1s;
+  &::before {
+    background-color: #fff;
+    transition: transform 0.35s cubic-bezier(0.45, 1, 0.4, 1),
+      -webkit-transform 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+    width: 51px;
+  }
+  &::after {
+  }
 }
