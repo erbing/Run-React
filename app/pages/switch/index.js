@@ -7,7 +7,8 @@ import Item from "@component/item";
 
 const SwitchApp = props => {
   let state = {
-    checked: false
+    checked1: false,
+    checked2: true
   };
 
   const handleCheck = value => {
@@ -21,10 +22,39 @@ const SwitchApp = props => {
         <BoxTitle title="基本用法" />
         <Item text="普通">
           <Switch
-            checked={state.checked}
+            checked={state.checked1}
             onChange={v => {
               handleCheck(v);
             }}
+          />
+        </Item>
+
+        <Item text="默认开">
+          <Switch
+            checked={state.checked2}
+            onChange={v => {
+              handleCheck(v);
+            }}
+          />
+        </Item>
+
+        <Item text="禁用的开关（默认关）">
+          <Switch
+            checked={state.checked1}
+            onChange={v => {
+              handleCheck(v);
+            }}
+            disabled
+          />
+        </Item>
+
+        <Item text="禁用的开关（默认开）">
+          <Switch
+            checked={state.checked2}
+            onChange={v => {
+              handleCheck(v);
+            }}
+            disabled
           />
         </Item>
       </Box>
