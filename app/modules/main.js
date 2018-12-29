@@ -16,6 +16,7 @@ import Toast from "../pages/toast";
 import ActionSheet from "../pages/actionSheet";
 import Input from "../pages/input";
 import Radio from "../pages/radio";
+import Popup from "../pages/popup";
 
 import About from "../pages/about";
 import LazyLoad from "../pages/lazyLoad";
@@ -70,6 +71,7 @@ const Main = () => (
       <Route path="/actionSheet" component={ActionSheet} />
       <Route path="/input" component={Input} />
       <Route path="/radio" component={Radio} />
+      <Route path="/popup" component={Popup} />
       <Route path="/about" component={About} />
       <Route path="/lazyLoad" component={LazyLoad} />
     </Switch>

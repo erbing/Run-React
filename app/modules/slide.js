@@ -13,9 +13,9 @@ export default class Header extends React.Component {
   render() {
     return (
       <div className="slide">
-        <div className="slide-header flex-xy">
+        <div className="slide-header flex-y">
           <img src={logoImg} className="slide-logo" />
-          <span className="slogn">ReactJs</span>
+          <span className="slogn">ReactJS</span>
           <em className="beta">Beta</em>
         </div>
 
@@ -82,6 +82,12 @@ export default class Header extends React.Component {
           <li className="slide-li">
             <Link to={"/toast"}>
               <b>Toast</b> 轻提示
+            </Link>
+          </li>
+
+          <li className="slide-li">
+            <Link to={"/popup"}>
+              <b>Popup</b> 弹出框
             </Link>
           </li>
 
