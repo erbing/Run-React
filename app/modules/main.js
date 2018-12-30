@@ -34,23 +34,7 @@ const Home = props => (
   </div>
 );
 
-const Roster = props => (
-  <div className="router">
-    this is index pages
-    <li>
-      {" "}
-      <Link to={"/msg/123"}> msg </Link>
-    </li>
-  </div>
-);
-
 const Schedule = Index;
-
-const Number = props => (
-  <div className="router">
-    this is Number pages and this is my prama id : {props.match.params.id}
-  </div>
-);
 
 const Icon = Icons;
 
@@ -58,9 +42,7 @@ const Main = () => (
   <div className="main">
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/index" component={Roster} />
       <Route path="/my" component={Schedule} />
-      <Route path="/msg/:id" component={Number} />
       <Route path="/icon" component={Icon} />
       <Route path="/http" component={Http} />
       <Route path="/button" component={Btn} />

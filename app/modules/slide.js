@@ -10,7 +10,13 @@ export default class Header extends React.Component {
     super(props);
   }
 
+  getSlideChildren = e => {
+    console.log(e);
+    this.props.changeTitle(e);
+  };
+
   render() {
+    let { changeTitle } = this.props;
     return (
       <div className="slide">
         <div className="slide-header flex-y">
@@ -21,13 +27,14 @@ export default class Header extends React.Component {
 
         <ul className="slide-ul">
           <li className="slide-li">
-            <Link to={"/"}>
+            <Link to={"/"} ref="router">
               <b>Home</b> 首页
             </Link>
           </li>
+
           <li className="slide-li">
-            <Link to={"/color"}>
-              <b>Color</b> 颜色
+            <Link to={"/color"} ref="router">
+              <b>Color</b> 色彩
             </Link>
           </li>
 
