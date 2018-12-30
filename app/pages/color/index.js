@@ -5,12 +5,14 @@ import Box from "@component/box";
 import BoxTitle from "@component/boxTitle";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import Actions from "../../store/actions";
 
 import "./index.less";
 
 class ColorApp extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props.actions, "---x-actions ----");
     this.state = {
       title: "色彩 Color"
     };
@@ -171,13 +173,13 @@ class ColorApp extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const {} = state;
-  return {};
+  const { title } = state;
+  return { title };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    // actions: bindActionCreators(Actions, dispatch)
+    actions: bindActionCreators(Actions, dispatch)
   };
 };
 

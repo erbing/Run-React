@@ -5,7 +5,6 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
     console.log(props, "---props---");
-    console.log(this, "---Link---");
   }
 
   render() {
