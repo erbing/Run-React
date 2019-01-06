@@ -17,12 +17,11 @@ class ColorApp extends React.Component {
       title: "色彩 Color"
     };
   }
-  static getDerivedStateFromProps(nextProps, prevState) {
-    console.log(1111);
 
-    // todo
+  static getDerivedStateFromProps(nextProps, prevState) {
     return false;
   }
+
   render() {
     return (
       <div>
