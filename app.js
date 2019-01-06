@@ -25,11 +25,6 @@ import Main from "./app/modules/main.js";
 import Slide from "./app/modules/slide.js";
 
 let curHeaderTitle = "首页 Index";
-let curRefs = {};
-
-const changeTitle = v => {
-  curRefs = v;
-};
 
 const APP = () => (
   <div className="app">

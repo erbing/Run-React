@@ -12,13 +12,14 @@ import "./index.less";
 class ColorApp extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.actions, "---x-actions ----");
+
     this.state = {
       title: "色彩 Color"
     };
   }
   static getDerivedStateFromProps(nextProps, prevState) {
     console.log(1111);
+
     // todo
     return false;
   }
@@ -169,6 +170,10 @@ class ColorApp extends React.Component {
         </Box>
       </div>
     );
+  }
+
+  componentDidMount() {
+    this.props.actions.changeTitle(this.state.title);
   }
 }
 

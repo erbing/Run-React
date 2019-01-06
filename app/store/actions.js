@@ -1,9 +1,17 @@
-const addTodo = text => {
-  return {
-    type: "ADD_TODO",
-    id: nextTodoId++,
-    text
+const changeTitle = title => {
+  console.log(111111);
+  return (dispath, getState) => {
+    dispath({
+      type: "CHANGE_TITLE",
+      data: {
+        title
+      }
+    });
   };
 };
 
-export default addTodo;
+let actions = {
+  changeTitle
+};
+
+export default actions;

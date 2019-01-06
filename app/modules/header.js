@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props, "---props---");
   }
 
   render() {
+    console.log(this.props, "--- this props title---");
     let { title } = this.props;
     return (
       <div className="header">
@@ -18,3 +20,16 @@ export default class Header extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  const { title } = state;
+  return { title };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
+const connectHeader = connect(mapStateToProps, mapDispatchToProps)(Header);
+
+export default connectHeader;
