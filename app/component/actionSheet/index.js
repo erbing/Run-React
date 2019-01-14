@@ -12,7 +12,6 @@ class ActionSheet extends React.Component {
       showCancel: false
     };
   }
-
   componentWillReceiveProps(nextProps) {
     if (nextProps.visible) {
       this.setState({
