@@ -6,13 +6,30 @@ class LazyLoad extends React.Component {
     super(props);
     this.state = {
       allImgs: [
-        { url: "http://1.lazyloading.sinaapp.com/Lazy/images/1.jpg" },
-        { url: "http://1.lazyloading.sinaapp.com/Lazy/images/2.jpg" },
-        { url: "http://1.lazyloading.sinaapp.com/Lazy/images/3.jpg" },
-        { url: "http://1.lazyloading.sinaapp.com/Lazy/images/4.jpg" },
-        { url: "http://1.lazyloading.sinaapp.com/Lazy/images/5.png" },
-        { url: "http://1.lazyloading.sinaapp.com/Lazy/images/6.jpg" },
-        { url: "http://1.lazyloading.sinaapp.com/Lazy/images/7.png" }
+        {
+          url:
+            "https://img2018.cnblogs.com/blog/675289/201901/675289-20190115124346601-1247452818.jpg"
+        },
+        {
+          url:
+            "https://img2018.cnblogs.com/blog/675289/201901/675289-20190115124352767-167052024.jpg"
+        },
+        {
+          url:
+            "https://img2018.cnblogs.com/blog/675289/201901/675289-20190115124355114-17326302.jpg"
+        },
+        {
+          url:
+            "https://img2018.cnblogs.com/blog/675289/201901/675289-20190115124357671-1508975843.jpg"
+        },
+        {
+          url:
+            "https://img2018.cnblogs.com/blog/675289/201901/675289-20190115124400427-714115237.jpg"
+        },
+        {
+          url:
+            "https://img2018.cnblogs.com/blog/675289/201901/675289-20190115124403350-1559344816.jpg"
+        }
       ]
     };
   }

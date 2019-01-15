@@ -4,7 +4,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import "../assets/less/index.less";
 import "../assets/less/main.less";
 
-import Index from "../pages/index";
+import Indexs from "../pages/index";
 import Icons from "../pages/icon";
 import Http from "../pages/http";
 
@@ -34,14 +34,14 @@ const Home = props => (
   </div>
 );
 
-const Schedule = Index;
+const Schedule = Indexs;
 
 const Icon = Icons;
 
 const Main = () => (
   <div className="main">
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={Indexs} />
       <Route path="/my" component={Schedule} />
       <Route path="/icon" component={Icon} />
       <Route path="/http" component={Http} />

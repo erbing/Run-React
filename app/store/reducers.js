@@ -1,6 +1,5 @@
 export default (state, action) => {
   let { data } = action;
-  console.log(222222);
   switch (action.type) {
     case "CHANGE_NAME":
       return {
@@ -20,7 +19,6 @@ export default (state, action) => {
       let newObj = Object.assign({}, state, {
         title: data.title
       });
-      console.log(newObj, "---reducer new object---");
       return newObj;
       break;
     default:

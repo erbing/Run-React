@@ -68,11 +68,11 @@ export default class Header extends React.Component {
             </Link>
           </li>
 
-          <li className="slide-li">
+          {/* <li className="slide-li">
             <Link to={"/checkbox"}>
               <b>Checkbox</b> 复选框
             </Link>
-          </li>
+          </li> */}
 
           <li className="slide-li">
             <Link to={"/modal"}>
@@ -98,11 +98,11 @@ export default class Header extends React.Component {
             </Link>
           </li>
 
-          <li className="slide-li">
+          {/* <li className="slide-li">
             <Link to={"/http"}>
               <b>Http</b> http插件
             </Link>
-          </li>
+          </li> */}
 
           <li className="slide-li">
             <Link to={"/lazyLoad"}>
