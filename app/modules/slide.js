@@ -109,6 +109,12 @@ export default class Header extends React.Component {
               <b>LazyLoad</b> 图片懒加载
             </Link>
           </li>
+
+          <li className="slide-li">
+            <Link to={"/about"}>
+              <b>About US</b> 关于我们
+            </Link>
+          </li>
         </ul>
       </div>
     );

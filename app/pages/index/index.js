@@ -10,7 +10,7 @@ class IndexApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "首页 index"
+      title: "首页 Home"
     };
   }
 
