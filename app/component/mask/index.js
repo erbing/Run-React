@@ -4,10 +4,12 @@ import "./index.less";
 const Mask = props => {
   let { visiblemask } = props;
   return (
-    <div
-      className={visiblemask == 1 ? "run-mask" : "run-mask-leave"}
-      {...props}
-    />
+    visiblemask == 1 && (
+      <div
+        className={visiblemask == 1 ? "run-mask" : "run-mask-leave"}
+        {...props}
+      />
+    )
   );
 };
 
