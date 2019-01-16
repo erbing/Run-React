@@ -18,6 +18,8 @@ import Input from "../pages/input";
 import Radio from "../pages/radio";
 import Popup from "../pages/popup";
 
+import Verify from "../pages/imgVerify";
+
 import Start from "../pages/start";
 import About from "../pages/about";
 import LazyLoad from "../pages/lazyLoad";
@@ -56,6 +58,7 @@ const Main = () => (
       <Route path="/radio" component={Radio} />
       <Route path="/popup" component={Popup} />
       <Route path="/about" component={About} />
+      <Route path="/verify" component={Verify} />
       <Route path="/lazyLoad" component={LazyLoad} />
     </Switch>
   </div>
