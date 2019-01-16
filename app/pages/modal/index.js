@@ -6,6 +6,10 @@ import Box from "@component/box";
 import BoxTitle from "@component/boxTitle";
 import Modal from "@component/modal";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import Actions from "../../store/actions";
+
 class ModalApp extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +19,8 @@ class ModalApp extends React.Component {
       show3: false,
       show4: false,
       show5: false,
-      show6: false
+      show6: false,
+      title: "模态框 Modal"
     };
   }
 
@@ -52,7 +57,7 @@ class ModalApp extends React.Component {
 
     return (
       <div>
-        <Box title="模态框 Modal" style={curStyle}>
+        <Box title={this.state.title} style={curStyle}>
           <BoxTitle title="基本用法" />
           <Item text="普通">
             <Button
@@ -176,6 +181,26 @@ class ModalApp extends React.Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    this.props.actions.changeTitle(this.state.title);
+  }
 }
 
-export default ModalApp;
+const mapStateToProps = state => {
+  const { title } = state;
+  return { title };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
+};
+
+const connectModalApp = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModalApp);
+
+export default connectModalApp;

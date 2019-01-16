@@ -2,6 +2,9 @@ import React from "react";
 import "./index.less";
 import Box from "@component/box";
 import BoxTitle from "@component/boxTitle";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import Actions from "../../store/actions";
 
 const allIcons = [
   "appreciate",
@@ -181,24 +184,52 @@ const allIcons = [
   "subscription_light"
 ];
 
-const Icon = props => {
-  return (
-    <div>
-      <Box title="图标 Icon">
-        <BoxTitle title="基本用法" />
-        <div className="flex-wrap icon-main">
-          {allIcons.map((item, index) => {
-            return (
-              <div className="item-icon" key={index}>
-                <i className={"icon-" + item + " icon"} />
-                <p className="icon-p">icon-{item}</p>
-              </div>
-            );
-          })}
-        </div>
-      </Box>
-    </div>
-  );
+class Icon extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "图标 Icon"
+    };
+  }
+  render() {
+    return (
+      <div>
+        <Box title={this.state.title}>
+          <BoxTitle title="基本用法" />
+          <div className="flex-wrap icon-main">
+            {allIcons.map((item, index) => {
+              return (
+                <div className="item-icon" key={index}>
+                  <i className={"icon-" + item + " icon"} />
+                  <p className="icon-p">icon-{item}</p>
+                </div>
+              );
+            })}
+          </div>
+        </Box>
+      </div>
+    );
+  }
+
+  componentDidMount() {
+    this.props.actions.changeTitle(this.state.title);
+  }
+}
+
+const mapStateToProps = state => {
+  const { title } = state;
+  return { title };
 };
 
-export default Icon;
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
+};
+
+const connectIcon = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Icon);
+
+export default connectIcon;

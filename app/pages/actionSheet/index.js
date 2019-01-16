@@ -6,6 +6,10 @@ import Box from "@component/box";
 import BoxTitle from "@component/boxTitle";
 import ActionSheet from "@component/actionSheet";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import Actions from "../../store/actions";
+
 class ActionSheetApp extends React.Component {
   constructor(props) {
     super(props);
@@ -32,7 +36,8 @@ class ActionSheetApp extends React.Component {
             console.log("操作三");
           }
         }
-      ]
+      ],
+      title: "动作面板 ActionSheet"
     };
   }
 
@@ -64,7 +69,7 @@ class ActionSheetApp extends React.Component {
     let { buttons, show1, show2, show3 } = this.state;
     return (
       <div>
-        <Box title="动作面板 ActionSheet" style={curStyle}>
+        <Box title={this.state.title} style={curStyle}>
           <BoxTitle title="基本用法" />
           <Item text="普通">
             <Button
@@ -127,6 +132,26 @@ class ActionSheetApp extends React.Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    this.props.actions.changeTitle(this.state.title);
+  }
 }
 
-export default ActionSheetApp;
+const mapStateToProps = state => {
+  const { title } = state;
+  return { title };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
+};
+
+const connectActionSheetApp = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ActionSheetApp);
+
+export default connectActionSheetApp;

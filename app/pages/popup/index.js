@@ -5,32 +5,58 @@ import Box from "@component/box";
 import BoxTitle from "@component/boxTitle";
 import Item from "@component/item";
 
-const PopupApp = props => {
-  let state = {
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import Actions from "../../store/actions";
+
+class PopupApp extends React.Component {
+  state = {
     checked1: false,
-    checked2: true
+    checked2: true,
+    title: "弹出框 Popup"
   };
 
-  const handleCheck = value => {
+  handleCheck = value => {
     console.log(value);
     state.checked = value;
   };
 
-  return (
-    <div>
-      <Box title="弹出框 Popup">
-        <BoxTitle title="基本用法" />
-        <Item text="普通">
-          <Switch
-            checked={state.checked1}
-            onChange={v => {
-              handleCheck(v);
-            }}
-          />
-        </Item>
-      </Box>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <Box title={this.state.title}>
+          <BoxTitle title="基本用法" />
+          <Item text="普通">
+            <Switch
+              checked={this.state.checked1}
+              onChange={v => {
+                handleCheck(v);
+              }}
+            />
+          </Item>
+        </Box>
+      </div>
+    );
+  }
+  componentDidMount() {
+    this.props.actions.changeTitle(this.state.title);
+  }
+}
+
+const mapStateToProps = state => {
+  const { title } = state;
+  return { title };
 };
 
-export default PopupApp;
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
+};
+
+const connectPopupApp = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PopupApp);
+
+export default connectPopupApp;

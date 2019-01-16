@@ -6,6 +6,10 @@ import Box from "@component/box";
 import BoxTitle from "@component/boxTitle";
 import Toast from "@component/toast";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import Actions from "../../store/actions";
+
 class ModalApp extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +18,8 @@ class ModalApp extends React.Component {
       show2: false,
       show3: false,
       show4: false,
-      show5: false
+      show5: false,
+      title: "轻提示 Toast"
     };
   }
 
@@ -53,7 +58,7 @@ class ModalApp extends React.Component {
     };
     return (
       <div>
-        <Box title="轻提示 Toast">
+        <Box title={this.state.title}>
           <BoxTitle title="基本用法" />
           <Item text="默认提示">
             <Button
@@ -153,6 +158,26 @@ class ModalApp extends React.Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    this.props.actions.changeTitle(this.state.title);
+  }
 }
 
-export default ModalApp;
+const mapStateToProps = state => {
+  const { title } = state;
+  return { title };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  };
+};
+
+const connectModalApp = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ModalApp);
+
+export default connectModalApp;
