@@ -110,11 +110,11 @@ export default class Header extends React.Component {
             </Link>
           </li> */}
 
-          <li className="slide-li">
+          {/* <li className="slide-li">
             <Link to={"/verify"}>
               <b>ImgVerify</b> 图片滑动验证
             </Link>
-          </li>
+          </li> */}
 
           <li className="slide-li">
             <Link to={"/lazyLoad"}>
