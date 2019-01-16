@@ -33,6 +33,12 @@ export default class Header extends React.Component {
           </li>
 
           <li className="slide-li">
+            <Link to={"/start"}>
+              <b>Start</b> 开始使用
+            </Link>
+          </li>
+
+          <li className="slide-li">
             <Link to={"/color"} ref="router">
               <b>Color</b> 色彩
             </Link>
@@ -112,7 +118,7 @@ export default class Header extends React.Component {
 
           <li className="slide-li">
             <Link to={"/about"}>
-              <b>About US</b> 关于我们
+              <b>About</b> 关于我们
             </Link>
           </li>
         </ul>

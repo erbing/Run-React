@@ -9,13 +9,10 @@ class Header extends React.Component {
   }
 
   render() {
-    console.log(this.props, "--- this props title---");
     let { title } = this.props;
     return (
-      <div className="header">
-        {/* <i className="icon icon-appreciate"></i>
-                 <i className="icon icon-check"></i> */}
-        <h2>{title}</h2>
+      <div className="main-header">
+        <span className="header-title">{title}</span>
       </div>
     );
   }
@@ -30,6 +27,9 @@ const mapDispatchToProps = dispatch => {
   return {};
 };
 
-const connectHeader = connect(mapStateToProps, mapDispatchToProps)(Header);
+const connectHeader = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
 
 export default connectHeader;

@@ -18,6 +18,7 @@ import Input from "../pages/input";
 import Radio from "../pages/radio";
 import Popup from "../pages/popup";
 
+import Start from "../pages/start";
 import About from "../pages/about";
 import LazyLoad from "../pages/lazyLoad";
 
@@ -42,7 +43,7 @@ const Main = () => (
   <div className="main">
     <Switch>
       <Route exact path="/" component={Indexs} />
-      <Route path="/my" component={Schedule} />
+      <Route path="/start" component={Start} />
       <Route path="/icon" component={Icon} />
       <Route path="/http" component={Http} />
       <Route path="/button" component={Btn} />

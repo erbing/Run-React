@@ -13,7 +13,7 @@ class PopupApp extends React.Component {
   state = {
     checked1: false,
     checked2: true,
-    title: "关于我们 About US"
+    title: "开始使用 Start"
   };
 
   handleCheck = value => {

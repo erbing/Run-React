@@ -13,12 +13,11 @@ class PopupApp extends React.Component {
   state = {
     checked1: false,
     checked2: true,
-    title: "关于我们 About US"
+    title: "关于我们 About"
   };
 
   handleCheck = value => {
-    console.log(value);
-    state.checked = value;
+    this.state.checked = value;
   };
 
   render() {
@@ -30,7 +29,7 @@ class PopupApp extends React.Component {
             <Switch
               checked={this.state.checked1}
               onChange={v => {
-                handleCheck(v);
+                this.handleCheck(v);
               }}
             />
           </Item>
