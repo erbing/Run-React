@@ -19,10 +19,8 @@ class Verify extends React.Component {
       startX: 0,
       moveX: 0,
       endX: 0,
-      leftStyle: {
-        left: 10
-      },
-      lefts: 10
+      lefts: 0,
+      isClick: false
     };
   }
 
@@ -48,28 +46,49 @@ class Verify extends React.Component {
     let moveBtnDom = document.getElementById("moveBtn");
 
     moveBtnDom.onmousedown = e => {
+      //   debugger;
       this.state.startX = e.clientX;
+      this.setState({
+        isClick: true
+      });
       console.log(e.clientX, "---start---");
     };
 
     moveBtnDom.onmousemove = e => {
-      if (this.state.startX) {
+      if (this.state.isClick) {
         this.state.moveX = e.clientX - this.state.startX;
-        console.log(this.state.moveX);
-        if (this.state.moveX < 0) {
-          this.state.moveX = 0;
+        this.state.lefts = this.state.moveX + this.state.endX;
+        // console.log(this.state.moveX, "---this.state.moveX---");
+        console.log(this.state.lefts, "---this.state.lefts---");
+        if (this.state.lefts < 0) {
+          this.state.lefts = 0;
+          return;
         }
+        if (this.state.lefts > 350) {
+          this.state.lefts = 350;
+          this.setState({
+            lefts: 350
+          });
+          return;
+        }
+
         this.setState({
-          lefts: this.state.moveX
+          moveX: this.state.moveX,
+          lefts: this.state.moveX + this.state.endX
         });
-        // this.state.leftStyle.left = this.state.moveX + "px";
+      } else {
+        return;
       }
     };
 
     moveBtnDom.onmouseup = e => {
-      if (this.state.startX) {
-        console.log(e.clientX, "---end---");
-        this.state.startX = 0;
+      if (this.state.isClick) {
+        console.log(this.state.moveX, "---end - move---");
+        this.state.endX = e.clientX;
+        this.setState({
+          isClick: false,
+          endX: this.state.lefts
+        });
       }
     };
   }
