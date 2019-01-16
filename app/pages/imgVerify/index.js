@@ -13,7 +13,10 @@ class PopupApp extends React.Component {
   state = {
     checked1: false,
     checked2: true,
-    title: "图片滑动验证 Verify"
+    title: "图片滑动验证 Verify",
+    canvasStyle: {
+      marginLeft: "15px"
+    }
   };
 
   render() {
@@ -21,7 +24,9 @@ class PopupApp extends React.Component {
       <div>
         <Box title={this.state.title}>
           <BoxTitle title="基本用法" />
-          <Verify />
+          <div style={this.state.canvasStyle}>
+            <Verify />
+          </div>
         </Box>
       </div>
     );

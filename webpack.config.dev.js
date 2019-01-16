@@ -2,7 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const OpenBrowserPlugin = require("open-browser-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let webpackConfig = {
   entry: {
@@ -46,6 +46,9 @@ let webpackConfig = {
       {
         test: /\.(png|jpg)$/,
         loader: "url-loader?limit=8192"
+        // options: {
+        //   limit: 8192
+        // }
       },
       {
         test: /\.(woff|eot|ttf|svg)(\?.*)?$/,
@@ -64,7 +67,10 @@ let webpackConfig = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "./index.html")
     }),
-    new ExtractTextPlugin("app/assets/icon/iconfont.css")
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
     // new OpenBrowserPlugin({
     //     url: 'http://127.0.0.1:8000'
     // }),
