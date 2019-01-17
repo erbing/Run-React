@@ -82,7 +82,7 @@ let webpackConfig = {
       template: path.join(__dirname, "./index.html"),
       filename: "index.html",
       favicon: "./favicon.ico",
-      chunks: ["app", "vender"]
+      chunks: ["vender", "app"]
     }),
 
     new ParallelUglifyPlugin({
@@ -97,7 +97,7 @@ let webpackConfig = {
       }
     })
   ],
-  mode: "production"
+  mode: "none"
 };
 
 module.exports = webpackConfig;
