@@ -56,14 +56,9 @@ let webpackConfig = {
   },
   optimization: {
     splitChunks: {
-      chunks: "all",
-      minSize: 30000,
-      maxSize: 0,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      automaticNameDelimiter: "~",
-      name: "vender"
+      minSize: 1,
+      chunks: "initial",
+      name: "vendor"
     }
   },
   plugins: [
@@ -71,18 +66,13 @@ let webpackConfig = {
       filename: "css/[name].css",
       chunkFilename: "[id].css"
     }),
-    // new webpack.DefinePlugin({
-    //     "process.env": {
-    //        NODE_ENV: JSON.stringify("production")
-    //      }
-    // }),
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
     // new webpack.optimization.splitChunks({name: 'vendor', filename: 'vendor.bundle.js'}),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "./index.html"),
       filename: "index.html",
       favicon: "./favicon.ico",
-      chunks: ["vender", "app"]
+      chunks: ["vendor", "app"]
     }),
 
     new ParallelUglifyPlugin({
@@ -97,6 +87,7 @@ let webpackConfig = {
       }
     })
   ],
+
   mode: "none"
 };
 
