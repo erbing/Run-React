@@ -12,11 +12,14 @@ class Popup extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.visible) {
-      setTimeout(() => {
-        this.setState({
-          showSheet: nextProps.visible
-        });
-      }, 100);
+      // setTimeout(() => {
+      //   this.setState({
+      //     showSheet: nextProps.visible
+      //   });
+      // }, 100);
+      this.setState({
+        showSheet: nextProps.visible
+      });
     }
   }
   render() {
