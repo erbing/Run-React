@@ -2,7 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const OpenBrowserPlugin = require("open-browser-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ParallelUglifyPlugin = require("webpack-parallel-uglify-plugin");
 
 let webpackConfig = {
@@ -54,8 +54,23 @@ let webpackConfig = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      chunks: "async",
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: "~",
+      name: true
+    }
+  },
   plugins: [
-    new ExtractTextPlugin("css/[name].css"),
+    new MiniCssExtractPlugin({
+      filename: "css/[name].css",
+      chunkFilename: "[id].css"
+    }),
     // new webpack.DefinePlugin({
     //     "process.env": {
     //        NODE_ENV: JSON.stringify("production")
@@ -67,14 +82,6 @@ let webpackConfig = {
       template: path.join(__dirname, "./index.html"),
       filename: "index.html",
       favicon: "./favicon.ico"
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      minChunks: Infinity
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      async: true,
-      minChunks: 3
     }),
 
     new ParallelUglifyPlugin({
@@ -88,7 +95,8 @@ let webpackConfig = {
         }
       }
     })
-  ]
+  ],
+  mode: "production"
 };
 
 module.exports = webpackConfig;
