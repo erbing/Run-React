@@ -103,6 +103,16 @@ class PopupApp extends React.Component {
                 this.open("show3");
               }}
             />
+            <Popup
+              type="left"
+              visible={this.state.show3}
+              showMask={true}
+              onClose={() => {
+                this.close("show3");
+              }}
+            >
+              <div>从左边显示出来了</div>
+            </Popup>
           </Item>
 
           <Item text="从右侧弹出">
@@ -113,6 +123,16 @@ class PopupApp extends React.Component {
                 this.open("show4");
               }}
             />
+            <Popup
+              type="right"
+              visible={this.state.show4}
+              showMask={true}
+              onClose={() => {
+                this.close("show4");
+              }}
+            >
+              <div>从右边显示出来了</div>
+            </Popup>
           </Item>
         </Box>
       </div>

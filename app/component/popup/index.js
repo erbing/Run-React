@@ -28,8 +28,8 @@ class Popup extends React.Component {
     let isShowMask = visible && showMask;
     let popupClass = classNames({
       "popup-wrapper": true,
-      "popup-content-bottom": true,
-      "popup-content-bottom-enter": showSheet
+      ["popup-content-" + `${type}`]: true,
+      ["popup-content-enter-" + `${type}`]: showSheet
     });
 
     let runPopupStyle = {
@@ -40,7 +40,13 @@ class Popup extends React.Component {
       <div>
         <div className="run-popup" style={runPopupStyle}>
           <div className={popupClass}>
-            <div className="popup-box">{children}</div>
+            <div
+              className={
+                type == "top" || type == "bottom" ? "popup-box1" : "popup-box2"
+              }
+            >
+              {children}
+            </div>
           </div>
           <Mask
             visiblemask={isShowMask ? 1 : 0}
