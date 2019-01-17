@@ -56,14 +56,14 @@ let webpackConfig = {
   },
   optimization: {
     splitChunks: {
-      chunks: "async",
+      chunks: "all",
       minSize: 30000,
       maxSize: 0,
       minChunks: 1,
       maxAsyncRequests: 5,
       maxInitialRequests: 3,
       automaticNameDelimiter: "~",
-      name: true
+      name: "vender"
     }
   },
   plugins: [
@@ -81,7 +81,8 @@ let webpackConfig = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "./index.html"),
       filename: "index.html",
-      favicon: "./favicon.ico"
+      favicon: "./favicon.ico",
+      chunks: ["app", "vender"]
     }),
 
     new ParallelUglifyPlugin({
