@@ -29,22 +29,24 @@ class Popup extends React.Component {
       "popup-content-bottom-enter": showSheet
     });
 
+    let runPopupStyle = {
+      visibility: visible ? "visible" : "hidden"
+    };
+
     return (
       <div>
-        {visible && (
-          <div className="run-popup">
-            <div className={popupClass}>
-              <div className="popup-box">{children}</div>
-            </div>
-            <Mask
-              visiblemask={isShowMask ? 1 : 0}
-              onClick={() => {
-                onClose();
-                this.setState({ showSheet: false });
-              }}
-            />
+        <div className="run-popup" style={runPopupStyle}>
+          <div className={popupClass}>
+            <div className="popup-box">{children}</div>
           </div>
-        )}
+          <Mask
+            visiblemask={isShowMask ? 1 : 0}
+            onClick={() => {
+              onClose();
+              this.setState({ showSheet: false });
+            }}
+          />
+        </div>
       </div>
     );
   }

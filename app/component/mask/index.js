@@ -3,13 +3,15 @@ import "./index.less";
 
 const Mask = props => {
   let { visiblemask } = props;
+  let curStyle = {
+    visibility: visiblemask == 1 ? "visible" : "hidden"
+  };
   return (
-    visiblemask == 1 && (
-      <div
-        className={visiblemask == 1 ? "run-mask" : "run-mask-leave"}
-        {...props}
-      />
-    )
+    <div
+      className={visiblemask == 1 ? "run-mask" : "run-mask-leave"}
+      {...props}
+      style={curStyle}
+    />
   );
 };
 
